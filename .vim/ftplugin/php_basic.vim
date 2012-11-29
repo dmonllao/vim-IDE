@@ -16,7 +16,7 @@ nnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
 " Update project tags.
-call system('sh ~/.vim/update_project_tags.sh')
+call system('sh ~/.vim/script/update_project_tags.sh')
 source ~/.vim/cscope_maps.vim
 
 " Open tree navigation and place top directory to the cwd.
