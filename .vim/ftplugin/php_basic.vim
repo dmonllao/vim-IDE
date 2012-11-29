@@ -10,11 +10,14 @@ highlight LineNr ctermfg=white
 " Remove all trailing whitespace.
 " autocmd BufWritePre *.php :%s/\s\+$//e
 
-" Map <ctrl>+p to multi line mode documentation
+" Map <ctrl>+p to multi line mode documentation.
 inoremap <buffer> <C-P> :call PhpDocRange()<CR>
 nnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
-" Update project tags
+" Update project tags.
 call system('sh ~/.vim/update_project_tags.sh')
 source ~/.vim/cscope_maps.vim
+
+" Open tree navigation and place top directory to the cwd.
+VSTreeExplore .

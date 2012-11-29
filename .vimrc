@@ -29,6 +29,10 @@ nnoremap <silent> <ins> :setlocal paste!<CR>i
 " Switch paste mode off whenever insert mode is left.
 autocmd InsertLeave <buffer> se nopaste
 
-" Toggle the tag list view
+" Toggle the tag list view.
 nnoremap <silent> <F8> :TlistToggle<CR>
 
+" Show tree explorer.
+let g:treeExplVertical = 1
+let g:treeExplWinSize = 30
+nnoremap <silent> <F7> :VSTreeExplore .<CR>
