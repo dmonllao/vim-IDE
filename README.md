@@ -1,11 +1,12 @@
-VIM configuration for PHP development
+VIM config with IDE features to work on PHP projects
 
 Features
 ========
-* Quick jump to methods, classes, functions...
+* Project tree explorer
 * File methods, classes, functions outline
-* phpDocumentor
-* Don't be scared by the time it takes the first time you open a file, is only the first time
+* Quick jump to methods, classes, functions...
+* phpDocumentor to create phpDoc comments blocks quickly
+* (Don't be scared by the time it takes the first time you open a file, is only the first time) :)
 
 Limitations
 ===========
@@ -18,7 +19,7 @@ Requirements
 Install
 =======
 * sudo apt-get install vim cscope exuberant-ctags
-* Copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-tags.git ~/"
+* Copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-ide.git ~/"
 
 Usage
 =====
@@ -28,14 +29,16 @@ Usage
 * To toggle the current file definitions list (methods, classes, functions and vars): Press <F8> to switch on/off
 * Jump to methods, classes or functions: Press <CTRL + PageUp> (to open horizontally) or <CTRL + PageDown> (to open vertically)
 * Check PHP syntax: Type ":make"
+* If you closed the project explorer (open by default in PHP files) you can reopen it with <F9>
 * To paste without indentation problems: Press <Ins> (Insert) key and CTRL+SHIFT+P
 
 Dependencies & credits
 ======================
 
-All this dependencies are installed following the 'Install' steps:
+Dependencies are installed following the 'Install' steps, I got most of the code from different projects:
 * http://cscope.sourceforge.net/
 * http://ctags.sourceforge.net/
+* https://github.com/vim-scripts/vtreeexplorer
 * https://github.com/vim-scripts/taglist.vim
 * https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim
 
@@ -49,3 +52,4 @@ TODO
 ====
 * Tags database loaded globally
 * Add .gitignore
+* Use git submodules for the dependencies
