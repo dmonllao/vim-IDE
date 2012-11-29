@@ -51,5 +51,4 @@ More info
 TODO
 ====
 * Tags database loaded globally
-* Add .gitignore
 * Use git submodules for the dependencies
