@@ -29,7 +29,7 @@ Usage
 * To toggle the current file definitions list (methods, classes, functions and vars): Press <F8> to switch on/off
 * Jump to methods, classes or functions: Press <CTRL + PageUp> (to open horizontally) or <CTRL + PageDown> (to open vertically)
 * Check PHP syntax: Type ":make"
-* If you closed the project explorer (open by default in PHP files) you can reopen it with <F9>
+* If you closed the project explorer (open by default in PHP files) you can reopen it with <F7>
 * To paste without indentation problems: Press <Ins> (Insert) key and CTRL+SHIFT+P
 
 Dependencies & credits
@@ -52,3 +52,4 @@ TODO
 ====
 * Tags database loaded globally
 * Use git submodules for the dependencies
+* Think of what must be global and what local
