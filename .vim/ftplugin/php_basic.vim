@@ -1,9 +1,9 @@
 " Check PHP syntax of current file.
-set makeprg=php\ -l\ %
-set errorformat=%m\ in\ %f\ on\ line\ %l
+setlocal makeprg=php\ -l\ %
+setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " Show line number.
-set number
+setlocal number
 highlight LineNr ctermfg=white
 
 " Pre save actions.
