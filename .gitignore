@@ -2,4 +2,6 @@
 !.gitignore
 !.vimrc
 !.vim/
+!.vim/*/*
+!.vim/*
 !README.md
