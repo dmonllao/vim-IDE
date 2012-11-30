@@ -16,7 +16,12 @@ nnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
 " Update project tags.
-call system('sh ~/.vim/script/update_project_tags.sh')
+let shreturn = system('sh ~/.vim/script/update_project_tags.sh')
+
+" Cleaning the return
+let $CSCOPE_DB = substitute(shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g") 
+
+" Adding the tags
 source ~/.vim/cscope_maps.vim
 
 " Open tree navigation and place top directory to the cwd.
