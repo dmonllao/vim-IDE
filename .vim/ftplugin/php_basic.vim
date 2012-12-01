@@ -31,6 +31,8 @@ source ~/.vim/cscope_maps.vim
 " Open tree navigation
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDChristmasTree = 1
+let NERDTreeStatusline = 'Project explorer'
 
 " Toggle the tree explorer
 nnoremap <silent> <F7> :NERDTreeToggle<CR>

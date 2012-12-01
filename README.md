@@ -2,7 +2,7 @@ VIM config with IDE features to work on PHP projects
 
 Features
 ========
-* Project tree explorer
+* Project explorer
 * File outline
 * Quick jump to methods, classes, functions...
 * phpDocumentor to create phpDoc comments blocks quickly
@@ -23,12 +23,13 @@ Usage
 * cd /your/project/root
 * vim the/file/you/want/to/open.php  (All PHP files in /your/project/root will be parsed to get the available definitions list)
 * Jump to methods, classes or functions: Press <CTRL + PageUp> (to open horizontally) or <CTRL + PageDown> (to open vertically)
+* Open a file from the project explorer: Press intro to open it in the main window, "s" to open it splitting the screen vertically or "i" to split it horizontally
 * Comment the current line: Press "<leader>cc" or "<leader>c<space>" to toogle the line comment (<leader> key is mapped to "\" by default)
 * Check PHP syntax: Type ":make"
 * To add phpDocs to a class, method or function: Go to the class/var/method/function definition line and press <CTRL + P>, you can overwrite the default values in ~/.vim/plugin/php-doc.vim
 * To paste without indentation problems: Press <Ins> (Insert) key and CTRL+SHIFT+P
 * To toggle the file outline: Press <F8>
-* To toggle the tree explorer: Press <F7>
+* To toggle the project explorer: Press <F7>
 
 Dependencies & credits
 ======================
@@ -47,11 +48,11 @@ More info
 * phpDocumentor: https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim
 * Tag Browsing: http://vim-taglist.sourceforge.net/manual.html
 * Jump to tags: http://cscope.sourceforge.net/cscope_vim_tutorial.html
-* Tree explorer: https://github.com/scrooloose/nerdtree/blob/master/README.md
+* Project explorer: https://github.com/scrooloose/nerdtree/blob/master/README.md
 * Comment lines: https://github.com/scrooloose/nerdcommenter/blob/master/README.md
 
 TODO
 ====
+* Close vim if the two only windows left open are NERDTree and Tlist
 * Tags database loaded globally
-* Use git submodules for the dependencies
 * Think of what must be global and what local
