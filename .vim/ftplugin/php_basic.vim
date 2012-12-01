@@ -26,3 +26,11 @@ source ~/.vim/cscope_maps.vim
 
 " Open tree navigation and place top directory to the cwd.
 VSTreeExplore .
+
+" Tag list config & init
+let Tlist_Auto_Open = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Sort_Type = 'name'
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Exit_OnlyWindow = 1
+TlistToggle
