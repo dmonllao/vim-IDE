@@ -5,3 +5,4 @@
 !.vim/*/*
 !.vim/*
 !README.md
+.vim/.netrwhist
