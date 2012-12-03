@@ -40,11 +40,17 @@ nnoremap <silent> <F7> :NERDTreeToggle<CR>
 """""""""""" OUTLINE """""""""""""""""""""
 " Tag list config & init
 let Tlist_Auto_Open = 1
+let Tlist_Auto_Update = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Sort_Type = 'name'
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1
-TlistOpen
+let Tlist_GainFocus_On_ToggleOpen = 0
+autocmd vimenter * TlistOpen
 
 " Toggle the tag list view.
 nnoremap <silent> <F8> :TlistToggle<CR>
+
+"""""""""""" GENERAL """""""""""""""""""""
+" Focus to opened file window
+autocmd vimenter * wincmd W
