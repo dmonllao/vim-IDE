@@ -16,20 +16,20 @@ Requirements
 Install
 =======
 * sudo apt-get install vim cscope exuberant-ctags
-* Copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-ide.git ~/"
+* Download the .zip file and copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-ide.git" and move contents to ~/
 
 Usage
 =====
 * cd /your/project/root
 * vim the/file/you/want/to/open.php  (All PHP files in /your/project/root will be parsed to get the available definitions list)
-* Jump to methods, classes or functions: Press <CTRL + PageUp> (to open horizontally) or <CTRL + PageDown> (to open vertically)
+* Jump to methods, classes or functions: Press \<CTRL + PageUp\> (to open horizontally) or \<CTRL + PageDown\> (to open vertically)
 * Open a file from the project explorer: Press intro to open it in the main window, "s" to open it splitting the screen vertically or "i" to split it horizontally
-* Comment the current line: Press "<leader>cc" or "<leader>c<space>" to toogle the line comment (<leader> key is mapped to "\" by default)
+* Comment the current line: Press "\<leader\>cc" or "\<leader\>c\<space\>" to toogle the line comment (\<leader\> key is mapped to "\" by default)
 * Check PHP syntax: Type ":make"
-* To add phpDocs to a class, method or function: Go to the class/var/method/function definition line and press <CTRL + P>, you can overwrite the default values in ~/.vim/plugin/php-doc.vim
-* To paste without indentation problems: Press <Ins> (Insert) key and CTRL+SHIFT+P
-* To toggle the file outline: Press <F8>
-* To toggle the project explorer: Press <F7>
+* To add phpDocs to a class, method or function: Go to the class/var/method/function definition line and press \<CTRL + P\>, you can overwrite the default values in ~/.vim/plugin/php-doc.vim
+* To paste without indentation problems: Press \<Ins\> (Insert) key and CTRL+SHIFT+P
+* To toggle the file outline: Press \<F8\>
+* To toggle the project explorer: Press \<F7\>
 
 Dependencies & credits
 ======================
