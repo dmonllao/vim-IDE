@@ -1,4 +1,4 @@
-VIM config with IDE features to work on PHP projects
+VIM config with IDE features to work on PHP projects (still in dev.)
 
 Features
 ========

@@ -44,7 +44,7 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Sort_Type = 'name'
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1
-TlistToggle
+TlistOpen
 
 " Toggle the tag list view.
 nnoremap <silent> <F8> :TlistToggle<CR>
