@@ -42,6 +42,7 @@ Dependencies are installed following the 'Install' steps, I got most of the code
 * https://github.com/vim-scripts/vtreeexplorer
 * https://github.com/vim-scripts/taglist.vim
 * https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim
+* https://github.com/nanotech/jellybeans.vim
 
 More info
 =========

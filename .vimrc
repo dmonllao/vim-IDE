@@ -1,6 +1,5 @@
 " General.
-syntax on
-set background=dark
+color jellybeans
 set fileformats=unix,dos
 set ruler
 set laststatus=2
