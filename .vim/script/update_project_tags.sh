@@ -16,10 +16,7 @@ find $PWD/* -name '*.php' > $CSCOPELIST
 # The name of the var is set as expected by cscope to load it.
 CSCOPE_DB=~/.vim/cscope_databases/$CSCOPEOUT
 
-# Creates cscope.out with the references list.
-cscope -b -i $CSCOPELIST -f $CSCOPE_DB $CSCOPELIST
-
-# Delete tmp file.
-rm $CSCOPELIST
+# Creates cscope.out silently with the references list (uncomment to get cscope errors).
+cscope -b -i $CSCOPELIST -f $CSCOPE_DB $CSCOPELIST &> /dev/null
 
 echo $CSCOPE_DB
