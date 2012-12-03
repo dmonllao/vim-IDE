@@ -15,7 +15,7 @@ Requirements
 
 Install
 =======
-* sudo apt-get install vim cscope exuberant-ctags
+* sudo apt-get install vim exuberant-ctags
 * Download the .zip file and copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-ide.git" and move contents to ~/
 
 Usage
@@ -35,7 +35,6 @@ Dependencies & credits
 ======================
 
 Dependencies are installed following the 'Install' steps, I got most of the code from different projects:
-* http://cscope.sourceforge.net/
 * http://ctags.sourceforge.net/
 * https://github.com/scrooloose/nerdtree
 * https://github.com/scrooloose/nerdcommenter
@@ -48,7 +47,6 @@ More info
 =========
 * phpDocumentor: https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim
 * Tag Browsing: http://vim-taglist.sourceforge.net/manual.html
-* Jump to tags: http://cscope.sourceforge.net/cscope_vim_tutorial.html
 * Project explorer: https://github.com/scrooloose/nerdtree/blob/master/README.md
 * Comment lines: https://github.com/scrooloose/nerdcommenter/blob/master/README.md
 
