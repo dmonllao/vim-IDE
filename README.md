@@ -7,7 +7,7 @@ Features
 * Quick jump to methods, classes, functions...
 * phpDocumentor to create phpDoc comments blocks quickly
 * Comment/uncomment lines quickly
-* (Don't be scared by the time it takes the first time you open a file, is only the first time) :)
+* (Don't be scared by the time it takes the first time you open a file, is gathering the project references and is only the first time) :)
 
 Requirements
 ============
