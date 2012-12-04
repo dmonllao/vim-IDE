@@ -5,6 +5,5 @@
 !.vim/*/*
 !.vim/*
 !README.md
-.vim/cscope_databases
-.vim/cscope_files
 .vim/.netrwhist
+.vim/tags
