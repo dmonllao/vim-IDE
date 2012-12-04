@@ -6,10 +6,9 @@ setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 setlocal number
 highlight LineNr ctermfg=white
 
-" Pre save actions.
-" TODO Transform into view trailing whitespace
-" Remove all trailing whitespace.
-" autocmd BufWritePre *.php :%s/\s\+$//e
+" Show trailing whitespaces.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 """""""""""" PHPDOC """"""""""""""""""""""
 " Map <ctrl>+p to multi line mode documentation.
