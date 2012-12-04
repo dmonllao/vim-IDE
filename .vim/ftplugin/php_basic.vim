@@ -17,15 +17,20 @@ inoremap <buffer> <C-P> :call PhpDocRange()<CR>
 nnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
-"""""""""""" TAGS JUMPS """"""""""""""""""
+"""""""""""" TAGS """"""""""""""""""""""""
 " Update project tags.
 let shreturn = system('sh ~/.vim/script/update_project_tags.sh')
 
-" Cleaning the return
-let $CSCOPE_DB = substitute(shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g") 
+" Cleaning the return.
+let tagsfile = substitute(shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g")
 
-" Adding the tags
-source ~/.vim/cscope_maps.vim
+" Adding the tags.
+set tags+=tagsfile
+
+" Adding quick maps
+nmap <C-PageUp> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <C-PageDown> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 
 """""""""""" TREE NAVIGATION """""""""""""
 " Open tree navigation
