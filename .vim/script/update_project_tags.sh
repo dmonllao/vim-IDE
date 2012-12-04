@@ -1,22 +1,27 @@
 #!/bin/sh
 
 # File name depending on $PWD.
-PWDHASH=`md5sum <<EOF
+RAWPWDHASH=`md5sum <<EOF
 $PWD
 EOF`
-CSCOPEOUT="${PWDHASH%% *}"
+PWDHASH="${RAWPWDHASH%% *}"
 
-# Tmp path to store the .php files list.
-CSCOPELIST=~/.vim/cscope_files/$CSCOPEOUT
+# Tags file path.
+TAGSFILE=~/.vim/tags/$PWDHASH
 
-# Lists all the PHP files of the project scope.
-find $PWD/* -name '*.php' > $CSCOPELIST
+# Lists project tags.
+ctags-exuberant \
+-f $TAGSFILE \
+-R \
+--languages=php \
+--exclude=.git \
+--totals=no \
+--verbose=no \
+--tag-relative=yes \
+--PHP-kinds=+cfi-v \
+--regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' \
+--regex-PHP='/interface\s+([^ ]+)/\1/i/' \
+--regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+. &> /dev/null
 
-# Path to store the cscope references file.
-# The name of the var is set as expected by cscope to load it.
-CSCOPE_DB=~/.vim/cscope_databases/$CSCOPEOUT
-
-# Creates cscope.out silently with the references list (uncomment to get cscope errors).
-cscope -b -i $CSCOPELIST -f $CSCOPE_DB $CSCOPELIST &> /dev/null
-
-echo $CSCOPE_DB
+echo $TAGSFILE
