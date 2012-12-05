@@ -53,5 +53,4 @@ More info
 TODO
 ====
 * Close vim if the two only windows left open are NERDTree and Tlist
-* Tags database loaded globally
 * Think of what must be global and what local

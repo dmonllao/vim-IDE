@@ -1,17 +1,9 @@
 #!/bin/sh
 
-# File name depending on $PWD.
-RAWPWDHASH=`md5sum <<EOF
-$PWD
-EOF`
-PWDHASH="${RAWPWDHASH%% *}"
-
-# Tags file path.
-TAGSFILE=~/.vim/tags/$PWDHASH
-
 # Lists project tags.
+# Redirects the usual warnings and errors to /dev/null
 ctags-exuberant \
--f $TAGSFILE \
+-f $1 \
 -R \
 --languages=php \
 --exclude=.git \
@@ -21,7 +13,4 @@ ctags-exuberant \
 --PHP-kinds=+cfi-v \
 --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' \
 --regex-PHP='/interface\s+([^ ]+)/\1/i/' \
---regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'`pwd` \
- &> /dev/null
-
-echo $TAGSFILE
+--regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' `pwd` 2> /dev/null

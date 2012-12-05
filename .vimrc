@@ -14,7 +14,7 @@ set expandtab
 set autoindent
 set smartindent
 
-" when you start searching text with /, search is performed at every new character insertion.
+" When you start searching text with /, search is performed at every new character insertion.
 set incsearch
 set hlsearch
 
