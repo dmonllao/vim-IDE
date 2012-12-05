@@ -9,6 +9,9 @@ setlocal number
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+"""""""""""" COMPLETION """"""""""""""""""
+set omnifunc=phpcomplete#CompletePHP
+
 """""""""""" PHPDOC """"""""""""""""""""""
 " Map <ctrl>+p to multi line mode documentation.
 inoremap <buffer> <C-P> :call PhpDocRange()<CR>
