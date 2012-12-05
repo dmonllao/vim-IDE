@@ -21,7 +21,7 @@ ctags-exuberant \
 --PHP-kinds=+cfi-v \
 --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' \
 --regex-PHP='/interface\s+([^ ]+)/\1/i/' \
---regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
-. &> /dev/null
+--regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'`pwd` \
+ &> /dev/null
 
 echo $TAGSFILE
