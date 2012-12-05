@@ -4,7 +4,6 @@ setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " Show line number.
 setlocal number
-highlight LineNr ctermfg=white
 
 " Show trailing whitespaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
