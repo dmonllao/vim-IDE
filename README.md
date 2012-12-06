@@ -15,7 +15,7 @@ Requirements
 
 Install
 =======
-* sudo apt-get install vim exuberant-ctags
+* sudo apt-get install vim exuberant-ctags (also works without ctags, but without quick jump nor file outline)
 * Download the .zip file and copy .vimrc and .vim/ contents to your home directory or "git clone https://github.com/dmonllao/vim-php-ide.git" and move contents to ~/
 
 Usage
