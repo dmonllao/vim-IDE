@@ -11,7 +11,7 @@ Features
 
 Requirements
 ============
-* Only tested with VIM 7.3 but is supposed to work with VIM 6 and higher
+* Only tested with VIM 7.3 but is supposed to work with VIM 7 and higher
 
 Install
 =======
@@ -58,4 +58,4 @@ More info
 TODO
 ====
 * Close vim if the two only windows left open are NERDTree and Tlist
-* Think of what must be global and what local
+* Autocompletion
