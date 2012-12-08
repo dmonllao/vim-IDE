@@ -30,8 +30,10 @@ if s:ctagsavailable =~ '/'
   " Add project tags if they are not there yet.
   if &tags !~ s:tagsfile
 
-    " Getting the tags.
-    execute system("sh ~/.vim/script/update_project_tags.sh " . s:tagsfile)
+    " Creating tags file if it doesn't exists.
+    if filereadable(s:tagsfile) == 'FALSE'
+      execute system("sh ~/.vim/script/update_project_tags.sh " . s:tagsfile)
+    endif
 
     " Adding the tags.
     execute "set tags+=" . s:tagsfile
@@ -41,6 +43,16 @@ if s:ctagsavailable =~ '/'
     nmap <C-PageDown> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
   endif
 endif
+
+" Function to rebuild tags by request with mapping
+function! s:RebuildTags()
+
+  let l:shreturn = system('sh ~/.vim/script/get_project_hash.sh')
+  let l:tagsfile = substitute(s:shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g")
+  execute system("sh ~/.vim/script/update_project_tags.sh " . s:tagsfile)
+endfunction
+command! -nargs=0 -bar RebuildTags call s:RebuildTags()
+
 
 """""""""""" OUTLINE """""""""""""""""""""
 
