@@ -1,10 +1,4 @@
-*
-!.gitignore
-!.vimrc
-!.vim/
-!.vim/*/*
-!.vim/*
-!README.md
-.vim/.netrwhist
-.vim/tags
-.vim/tags/*
+.netrwhist
+tags
+tags/*
+!tags/empty
