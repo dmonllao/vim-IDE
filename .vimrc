@@ -1,4 +1,5 @@
 " General.
+syntax enable
 color jellybeans
 set fileformats=unix,dos
 set ruler
