@@ -2,7 +2,7 @@
 
 # Lists project tags.
 # Redirects the usual warnings and errors to /dev/null
-ctags-exuberant \
+ctags \
 -f $1 \
 -R \
 --languages=php \

@@ -10,7 +10,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Is ctags available?.
-let s:ctagsavailable = system('which ctags-exuberant 2> /dev/null')
+let s:ctagsavailable = system('which ctags 2> /dev/null')
 
 """""""""""" PHPDOC """"""""""""""""""""""
 " Map <ctrl>+p to multi line mode documentation.
@@ -71,6 +71,7 @@ if s:ctagsavailable =~ '/'
 
   " Toggle the tag list view.
   nnoremap <silent> <F8> :TlistToggle<CR>
+
 endif
 
 """""""""""" TREE NAVIGATION """""""""""""
