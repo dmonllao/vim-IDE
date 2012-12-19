@@ -17,8 +17,11 @@ Install
 =======
 * sudo apt-get install vim exuberant-ctags (also works without ctags, but without quick jump nor file outline)
 * Backup your /home/YOURUSER/.vimrc and your /home/YOURUSER/.vim
-* Download the .zip file from https://github.com/dmonllao/vim-php-ide/archive/master.zip or "git clone https://github.com/dmonllao/vim-php-ide.git" into /home/YOURUSER/.vim/ 
-* Run "ln -s ~/.vim/.vimrc ~/.vimrc" to link .vimrc to your user home directory
+  cd ~/.vim
+  git clone https://github.com/dmonllao/vim-php-ide.git .
+  ln -s ~/.vim/.vimrc ~/.vimrc
+  git submodule init
+  git submodule update
 
 Usage
 =====
