@@ -28,3 +28,6 @@ set pastetoggle=<ins>
 nnoremap <silent> <ins> :setlocal paste!<CR>i
 " Switch paste mode off whenever insert mode is left.
 autocmd InsertLeave <buffer> se nopaste
+
+" Pathogen to install plugins as git submodules.
+call pathogen#infect()
