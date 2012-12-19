@@ -1,0 +1,3 @@
+[submodule "bundle/jellybeans"]
+	path = bundle/jellybeans
+	url = git://github.com/nanotech/jellybeans.vim.git

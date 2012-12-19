@@ -1,6 +1,5 @@
 " General.
 syntax enable
-color jellybeans
 set fileformats=unix,dos
 set ruler
 set laststatus=2
@@ -31,3 +30,5 @@ autocmd InsertLeave <buffer> se nopaste
 
 " Pathogen to install plugins as git submodules.
 call pathogen#infect()
+
+color jellybeans
