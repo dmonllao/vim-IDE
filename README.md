@@ -7,6 +7,7 @@ Features
 * Quick jump to methods, classes, functions...
 * phpDocumentor to create phpDoc comments blocks quickly
 * Comment/uncomment lines quickly
+* Integrated with git at project-level repository
 * (Don't be scared by the time it takes the first time you open a file, is gathering the project references and is only the first time) :)
 
 Requirements
@@ -51,10 +52,10 @@ Dependencies are installed following the 'Install' steps, I got most of the code
 * http://ctags.sourceforge.net/
 * https://github.com/scrooloose/nerdtree
 * https://github.com/scrooloose/nerdcommenter
-* https://github.com/vim-scripts/vtreeexplorer
 * https://github.com/vim-scripts/taglist.vim
 * https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim
 * https://github.com/nanotech/jellybeans.vim
+* https://github.com/tpope/vim-fugitive
 
 More info
 =========
@@ -62,3 +63,4 @@ More info
 * Tag Browsing: http://vim-taglist.sourceforge.net/manual.html
 * Project explorer: https://github.com/scrooloose/nerdtree/blob/master/README.md
 * Comment lines: https://github.com/scrooloose/nerdcommenter/blob/master/README.md
+* Git: https://github.com/tpope/vim-fugitive/blob/master/README.md
