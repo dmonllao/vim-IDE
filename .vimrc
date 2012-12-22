@@ -32,3 +32,6 @@ autocmd InsertLeave <buffer> se nopaste
 call pathogen#infect()
 
 color jellybeans
+
+" Support QuickFix for Ggrep (fugitive)
+autocmd QuickFixCmdPost *grep* cwindow
