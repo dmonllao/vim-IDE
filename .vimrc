@@ -4,6 +4,24 @@ set fileformats=unix,dos
 set ruler
 set laststatus=2
 
+" Show line number.
+setlocal number
+
+" Support QuickFix for Ggrep.
+autocmd QuickFixCmdPost *grep* cwindow
+
+" Open tree navigation
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:NERDChristmasTree = 1
+let g:NERDTreeStatusline = 'Project explorer'
+
+" Toggle the tree explorer
+nnoremap <silent> <F7> :NERDTreeToggle<CR>
+
+" Focus to opened file window
+autocmd vimenter * wincmd w
+
 " Auto read when a file is changed from the outside.
 set autoread
 
