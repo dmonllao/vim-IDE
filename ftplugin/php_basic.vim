@@ -12,7 +12,13 @@ match ExtraWhitespace /\s\+$/
 " Is ctags available?.
 let s:ctagsavailable = system('which ctags 2> /dev/null')
 
+"""""""""""" GIT & GREP """"""""""""""""""
+
+" Support QuickFix for Ggrep.
+autocmd QuickFixCmdPost *grep* cwindow
+
 """""""""""" PHPDOC """"""""""""""""""""""
+
 " Map <ctrl>+p to multi line mode documentation.
 inoremap <buffer> <C-P> :call PhpDocRange()<CR>
 nnoremap <buffer> <C-P> :call PhpDocRange()<CR>
@@ -75,6 +81,7 @@ if s:ctagsavailable =~ '/'
 endif
 
 """""""""""" TREE NAVIGATION """""""""""""
+
 " Open tree navigation
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -85,5 +92,7 @@ let g:NERDTreeStatusline = 'Project explorer'
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
 """""""""""" GENERAL """""""""""""""""""""
+
 " Focus to opened file window
 autocmd vimenter * wincmd w
+
