@@ -22,9 +22,9 @@ set hlsearch
 filetype plugin on
 
 " Paste mode ONLY with INSERT key (paste conflicts with mappings and abreviations).
-set pastetoggle=<ins>
+set pastetoggle=<F9>
 " Go to insert mode when <ins> pressed in normal mode.
-nnoremap <silent> <ins> :setlocal paste!<CR>i
+nnoremap <silent> <F9> :setlocal paste!<CR>i
 " Switch paste mode off whenever insert mode is left.
 autocmd InsertLeave <buffer> se nopaste
 
