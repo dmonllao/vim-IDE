@@ -1,5 +1,9 @@
 #!/bin/sh
 
+##
+# Expects the filename as $1
+##
+
 # Lists project tags.
 # Redirects the usual warnings and errors to /dev/null
 ctags \
