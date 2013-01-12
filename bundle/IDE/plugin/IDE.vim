@@ -28,14 +28,6 @@ function! s:IDEOpen()
   " Project explorer load and display.
   call s:IDEAddNERDTree()
 
-  if exists("w:IDESetLanguageMake")
-    call w:IDESetLanguageMake()
-  endif
-
-  if exists("w:IDESetLanguageExtra")
-    call w:IDESetLanguageExtra()
-  endif
-
   " Focus to opened file window.
   wincmd w
 
