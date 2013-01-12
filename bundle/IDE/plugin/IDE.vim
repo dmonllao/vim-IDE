@@ -1,10 +1,16 @@
+"""""""""" Public """""""""""""""""""
 
-" Public access
 command! -nargs=0 -bar IDEInit call s:IDEInit()
 command! -nargs=0 -bar IDEOpen call s:IDEOpen()
 command! -nargs=0 -bar IDEClose call s:IDEClose()
 command! -nargs=0 -bar IDERebuildTags call s:IDEBuildTags(0)
 
+" Global vars user can modify
+if !exists("g:IDEAlways")
+  let g:IDEAlways = 0
+endif
+
+"""""""""" Functions """"""""""""""""
 
 " Init the IDE windows
 function! s:IDEInit()
@@ -85,7 +91,6 @@ function! s:IDEBuildTags(check_previous_file)
   return 0
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load the tags of the specified language inside the project scope
 function! s:IDEAddTags()
@@ -95,6 +100,7 @@ function! s:IDEAddTags()
   endif
 
 endfunction
+
 
 " Adds Taglist
 function! s:IDEAddTaglist()
@@ -117,6 +123,7 @@ function! s:IDEAddTaglist()
 
 endfunction
 
+
 " Adds NERDTree
 function! s:IDEAddNERDTree()
 
@@ -134,20 +141,24 @@ function! s:IDEAddNERDTree()
 
 endfunction
 
+
 " Returns the current buffer file type
 function! s:IDEGetFileLanguage()
   return &filetype
 endfunction
+
 
 " Runs the ctags command
 function! s:IDERunCtagsCommand(command_path, tags_file)
   execute system('sh ' . a:command_path . ' ' . a:tags_file)
 endfunction
 
+
 " Returns the path to the language ctags script
 function! s:IDEGetCtagsScript(language)
   return '~/.vim/fttags/' . a:language . '.sh'
 endfunction
+
 
 " Gets the tags filename ([pwd + language] unique)
 function! s:IDEGetTagsFileName(language)
