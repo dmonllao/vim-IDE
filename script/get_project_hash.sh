@@ -1,5 +1,10 @@
 #!/bin/sh
 
+##
+# Expects the language as $1 so each project has
+# a tags file per language
+##
+
 # Depending on the OS.
 if which md5sum 1> /dev/null ;  then
     command='md5sum'
@@ -9,7 +14,7 @@ fi
 
 # File name depending on $PWD.
 RAWPWDHASH=`$command <<EOF
-$PWD
+"$1_$PWD"
 EOF`
 PWDHASH="${RAWPWDHASH%% *}"
 
