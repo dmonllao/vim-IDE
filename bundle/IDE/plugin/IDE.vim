@@ -1,26 +1,43 @@
 """""""""" Public """""""""""""""""""
 
-command! -nargs=0 -bar IDEInit call s:IDEInit()
+" Starts IDE mode.
 command! -nargs=0 -bar IDEOpen call s:IDEOpen()
+
+" Stops IDE mode.
 command! -nargs=0 -bar IDEClose call s:IDEClose()
+
+" Rebuild the tags of the current buffer.
 command! -nargs=0 -bar IDERebuildTags call s:IDEBuildTags(0)
 
-" Global vars user can modify
+" To make Vim init in IDE mode with all kind of files.
 if !exists("g:IDEAlways")
   let g:IDEAlways = 0
 endif
 
-"""""""""" Functions """"""""""""""""
 
-" Init the IDE windows
-function! s:IDEInit()
-  IDEOpen
-  autocmd vimenter * wincmd w
-endfunction
+"""""""""" Mappings """""""""""""""""
 
+" Jump to definitions mappings.
+nmap <C-i> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <C-v> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" File outline window mapping.
+nmap <silent> <F8> :TlistToggle<CR>
+
+" Project explorer window mapping.
+nmap <silent> <F7> :NERDTreeToggle<CR>
+
+
+"""""""""" Internals """"""""""""""""
+
+let g:IDEModeOn = 0
 
 " Open the IDE windows
 function! s:IDEOpen()
+
+  if g:IDEModeOn == 1
+    return 0
+  endif
 
   " Show line numbers.
   setlocal number
@@ -37,6 +54,8 @@ function! s:IDEOpen()
   " Focus to opened file window.
   wincmd w
 
+  let g:IDEModeOn = 1
+
 endfunction
 
 
@@ -48,9 +67,14 @@ function! s:IDEClose()
 
   setlocal nonumber
 
-  TlistClose
   NERDTreeClose
-    
+
+  if bufwinnr(g:TagList_title) != -1
+    TlistClose
+  endif
+
+  let g:IDEModeOn = 0
+
 endfunction
 
 
@@ -80,9 +104,6 @@ function! s:IDEBuildTags(check_previous_file)
       " Adding the tags.
       execute "set tags+=" . l:tags_file
 
-      " Adding mappings.
-      nmap <C-PageUp> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-      nmap <C-PageDown> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
     endif
 
     return 1
@@ -118,9 +139,6 @@ function! s:IDEAddTaglist()
   " It seems that taglist ignores g:Tlist_GainFocus_On_ToggleOpen.
   wincmd w
 
-  " Toggle the tag list view.
-  nnoremap <silent> <F8> :TlistToggle<CR>
-
 endfunction
 
 
@@ -135,9 +153,6 @@ function! s:IDEAddNERDTree()
 
   " Close vim if it's the last window.
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-  " Toggle the tree explorer.
-  nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
 endfunction
 
