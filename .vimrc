@@ -21,7 +21,7 @@ set hlsearch
 " Turn on filetype detection and load the plugin files for specific file types.
 filetype plugin on
 
-" Paste mode ONLY with INSERT key (paste conflicts with mappings and abreviations).
+" Paste mode with F9 key (paste conflicts with mappings and abreviations).
 set pastetoggle=<F9>
 " Go to insert mode when <ins> pressed in normal mode.
 nnoremap <silent> <F9> :setlocal paste!<CR>i
@@ -31,4 +31,5 @@ autocmd InsertLeave <buffer> se nopaste
 " Pathogen to install plugins as git submodules.
 call pathogen#infect()
 
+" Styles.
 color jellybeans

@@ -10,12 +10,12 @@
 ctags \
 -f $1 \
 -R \
---languages=LANGUAGENAME \
+--languages=FILETYPENAME \
 --exclude=.git \
 --totals=no \
 --verbose=no \
 --tag-relative=yes \
---LANGUAGENAME-kinds=+cfi-v \
---regex-LANGUAGENAME='/read_ctags_docs/' \
---regex-LANGUAGENAME='/or_use_google_or_github/' \
+--FILETYPENAME-kinds=+cfi-v \
+--regex-FILETYPENAME='/read_ctags_docs/' \
+--regex-FILETYPENAME='/or_use_google_or_github/' \
 `pwd` 2> /dev/null
