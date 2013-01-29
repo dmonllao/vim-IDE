@@ -35,12 +35,12 @@ let g:IDEModeOn = 0
 " Open the IDE windows
 function! s:IDEOpen()
 
+  " Show line numbers.
+  set number
+
   if g:IDEModeOn == 1
     return 0
   endif
-
-  " Show line numbers.
-  setlocal number
 
   " Support QuickFix for Ggrep.
   autocmd QuickFixCmdPost *grep* cwindow
@@ -65,7 +65,7 @@ function! s:IDEClose()
   " Get file type.
   let l:language = s:IDEGetFileLanguage()
 
-  setlocal nonumber
+  set nonumber
 
   NERDTreeClose
 
