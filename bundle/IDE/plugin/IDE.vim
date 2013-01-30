@@ -15,32 +15,22 @@ if !exists("g:IDEAlways")
 endif
 
 
-"""""""""" Mappings """""""""""""""""
-
-" Jump to definitions mappings.
-nmap <C-i> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-nmap <C-v> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-" File outline window mapping.
-nmap <silent> <F8> :TlistToggle<CR>
-
-" Project explorer window mapping.
-nmap <silent> <F7> :NERDTreeToggle<CR>
-
-
 """""""""" Internals """"""""""""""""
 
-let g:IDEModeOn = 0
+let s:IDEModeOn = 0
 
 " Open the IDE windows
 function! s:IDEOpen()
 
+  if s:IDEModeOn == 1
+    return 0
+  endif
+
   " Show line numbers.
   set number
 
-  if g:IDEModeOn == 1
-    return 0
-  endif
+  " Add key mappings.
+  call s:IDEAddKeyMappings()
 
   " Support QuickFix for Ggrep.
   autocmd QuickFixCmdPost *grep* cwindow
@@ -54,7 +44,7 @@ function! s:IDEOpen()
   " Focus to opened file window.
   wincmd w
 
-  let g:IDEModeOn = 1
+  let s:IDEModeOn = 1
 
 endfunction
 
@@ -73,7 +63,7 @@ function! s:IDEClose()
     TlistClose
   endif
 
-  let g:IDEModeOn = 0
+  let s:IDEModeOn = 0
 
 endfunction
 
@@ -141,6 +131,20 @@ function! s:IDEAddTaglist()
 
 endfunction
 
+" Adds the key mappings depening on the provided values.
+function! s:IDEAddKeyMappings()
+
+  " Jump to definitions mappings.
+  exe 'nmap <C-' . g:IDEVSplitWindowKey . '> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>'
+  exe 'nmap <C-' . g:IDESplitWindowKey . '> :sp <CR>:exec("tag ".expand("<cword>"))<CR>'
+  exe 'nmap <C-' . g:IDEOpenCurrentWindowKey . '> :exec("tag ".expand("<cword>"))<CR>'
+
+  " File outline window mapping.
+  exe 'nmap <silent> <' . g:IDETagListToggleKey . '> :TlistToggle<CR>'
+
+  " Project explorer window mapping.
+  exe 'nmap <silent> <' . g:IDENERDTreeToggleKey . '> :NERDTreeToggle<CR>'
+endfunction
 
 " Adds NERDTree
 function! s:IDEAddNERDTree()
