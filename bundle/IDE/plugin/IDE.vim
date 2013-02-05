@@ -14,6 +14,30 @@ if !exists("g:IDEAlways")
   let g:IDEAlways = 0
 endif
 
+" Default key mappings
+if !exists("g:IDESplitWindowKey")
+  let g:IDESplitWindowKey = 'c'
+endif
+
+if !exists("g:IDEVSplitWindowKey")
+  let g:IDEVSplitWindowKey = 'i'
+endif
+
+if !exists("g:IDEOpenCurrentWindowKey")
+  let g:IDEOpenCurrentWindowKey = 'a'
+endif
+
+if !exists("g:IDETagListToggleKey")
+  let g:IDETagListToggleKey = 'F8'
+endif
+
+if !exists("g:IDENERDTreeToggleKey")
+  let g:IDENERDTreeToggleKey = 'F7'
+endif
+
+if !exists("g:IDEPasteModeKey")
+  let g:IDEPasteModeKey = 'F9'
+endif
 
 """""""""" Internals """"""""""""""""
 

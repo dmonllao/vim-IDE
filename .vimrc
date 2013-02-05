@@ -1,4 +1,5 @@
-" General.
+""""""""" General Vim settings """""""""""""""""
+
 syntax enable
 set fileformats=unix,dos
 set ruler
@@ -14,22 +15,68 @@ set expandtab
 set autoindent
 set smartindent
 
-" When you start searching text with /, search is performed at every new character insertion.
+" When you start searching text with /, search is performed at every
+" new character insertion.
 set incsearch
 set hlsearch
 
-" Turn on filetype detection and load the plugin files for specific file types.
+" Turn on filetype detection and load the plugin files for
+" specific file types.
 filetype plugin on
-
-" Paste mode with F9 key (paste conflicts with mappings and abreviations).
-set pastetoggle=<F9>
-" Go to insert mode when <ins> pressed in normal mode.
-nnoremap <silent> <F9> :setlocal paste!<CR>i
-" Switch paste mode off whenever insert mode is left.
-autocmd InsertLeave <buffer> se nopaste
 
 " Pathogen to install plugins as git submodules.
 call pathogen#infect()
 
 " Styles.
 color jellybeans
+
+
+
+""""""""" IDE COMMANDS """"""""""""""""""""""""""""""""""""""""""""""
+"
+" :IDEOpen               Starts IDE mode.
+" :IDEClose              Stops IDE mode.
+" :IDERebuildTags        Rebuilds the project tags of the current
+"                        buffer filetype.
+"
+"
+""""""""" VARS """"""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"let g:IDEAlways = 1     Always open Vim in IDE mode.
+"
+"
+""""""""" KEY MAPPINGS (CHANGE THEM AS YOU WISH) """"""""""""""""""""
+"
+" These are the default keys mappings, uncomment and replace the
+" values with your mappings using the Vim <KEY> format.
+"
+""""""""""""""""""
+"
+" Mappings used when opening files both through the project project
+" explorer and when jumping to functions/classes definitions.
+"
+" Note that to jump to functions/classes you must press CTRL + KEY,
+" where KEY is the key specified in "g:IDE....Key" vars.
+"
+"let g:IDESplitWindowKey = 'c'
+"let g:IDEVSplitWindowKey = 'i'
+"let g:IDEOpenCurrentWindowKey = 'a'
+"
+""""""""""""""""""
+"
+" Mappings used to hide/show the lateral windows.
+"
+"let g:IDETagListToggleKey = 'F8'
+"let g:IDENERDTreeToggleKey = 'F7'
+"
+""""""""""""""""""
+"
+" Other mappings
+"
+"let g:IDEPasteModeKey = 'F9'
+"
+"
+""""""""" ADD YOUR OWN VIM SETTING/MAPPINGS """""
+"
+" Add here your own Vim setting and overwrites
+"
