@@ -22,7 +22,10 @@ let g:pdv_cfg_Author = ""
 setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
-" Show trailing whitespaces.
+" Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * call clearmatches()
+autocmd BufWinLeave * call clearmatches()
+autocmd InsertLeave * call clearmatches()
+autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
 
