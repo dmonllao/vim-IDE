@@ -23,9 +23,20 @@ setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " Show trailing whitespaces and tabs.
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight BadForm ctermbg=red guibg=red
 autocmd BufWinEnter * call clearmatches()
-autocmd BufWinLeave * call clearmatches()
+autocmd BufWinEnter * let w:m1=matchadd('BadForm', '\t', -1)
+autocmd BufWinEnter * let w:m1=matchadd('BadForm', '\s\+$', -1)
+autocmd BufWinEnter * let w:m2=matchadd('BadForm', '^[^\/]*\n[^\:]*\/\/\s*[a-z].*$', -1)
+autocmd BufWinEnter * let w:m3=matchadd('BadForm', '\(^\|[^:]\)\/\/.*[^.?!]\n\w*\([^\/ ]\|$\)', -1)
+autocmd InsertEnter * call clearmatches()
+autocmd InsertEnter * let w:m3=matchadd('BadForm', '\(^\|[^:]\)\/\/.*[^.?!]\%#\@<!\n\w*\([^\/ ]\|$\)', -1)
+autocmd InsertEnter * let w:m2=matchadd('BadForm', '^[^\/]*\n[^\:]*\/\/\s*[a-z].*\%#\@<!$', -1)
+autocmd InsertEnter * let w:m1=matchadd('BadForm', '\s\+\%#\@<!$', -1)
 autocmd InsertLeave * call clearmatches()
-autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
+autocmd InsertLeave * let w:m3=matchadd('BadForm', '\(^\|[^:]\)\/\/.*[^.?!]\n\w*\([^\/ ]\|$\)', -1)
+autocmd InsertLeave * let w:m2=matchadd('BadForm', '^[^\/]*\n[^\:]*\/\/\s*[a-z].*$', -1)
+autocmd InsertLeave * let w:m1=matchadd('BadForm', '\t', -1)
+autocmd InsertLeave * let w:m1=matchadd('BadForm', '\s\+$', -1)
+autocmd BufWinLeave * call clearmatches()
 
