@@ -42,7 +42,8 @@ color jellybeans
 "
 """"""""" VARS """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"let g:IDEAlways = 1     Always open Vim in IDE mode.
+"let g:IDEAlways = 1     Always open Vim in IDE mode, without
+"                        considering the file type.
 "
 "
 """"""""" KEY MAPPINGS (CHANGE THEM AS YOU WISH) """"""""""""""""""""
@@ -59,15 +60,15 @@ color jellybeans
 " where KEY is the key specified in "g:IDE....Key" vars.
 "
 "let g:IDESplitWindowKey = 'c'
-"let g:IDEVSplitWindowKey = 'i'
+"let g:IDEVSplitWindowKey = 'f'
 "let g:IDEOpenCurrentWindowKey = 'a'
 "
 """"""""""""""""""
 "
 " Mappings used to hide/show the lateral windows.
 "
-"let g:IDETagListToggleKey = 'F8'
 "let g:IDENERDTreeToggleKey = 'F7'
+"let g:IDETagListToggleKey = 'F8'
 "
 """"""""""""""""""
 "

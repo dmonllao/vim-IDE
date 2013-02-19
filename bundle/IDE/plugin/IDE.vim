@@ -20,19 +20,19 @@ if !exists("g:IDESplitWindowKey")
 endif
 
 if !exists("g:IDEVSplitWindowKey")
-  let g:IDEVSplitWindowKey = 'i'
+  let g:IDEVSplitWindowKey = 'f'
 endif
 
 if !exists("g:IDEOpenCurrentWindowKey")
   let g:IDEOpenCurrentWindowKey = 'a'
 endif
 
-if !exists("g:IDETagListToggleKey")
-  let g:IDETagListToggleKey = 'F8'
-endif
-
 if !exists("g:IDENERDTreeToggleKey")
   let g:IDENERDTreeToggleKey = 'F7'
+endif
+
+if !exists("g:IDETagListToggleKey")
+  let g:IDETagListToggleKey = 'F8'
 endif
 
 if !exists("g:IDEPasteModeKey")
