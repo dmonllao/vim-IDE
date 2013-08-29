@@ -26,11 +26,11 @@ Install
 * sudo apt-get install vim exuberant-ctags (also works without ctags, but without quick jump nor file outline)
 * Backup your /home/YOURUSER/.vimrc and your /home/YOURUSER/.vim
 * Run the following in CLI
-    * cd ~/.vim
-    * git clone https://github.com/dmonllao/IDE.vim .
-    * ln -s ~/.vim/.vimrc ~/.vimrc
-    * git submodule init
-    * git submodule update
+    * *cd ~/.vim*
+    * *git clone git://github.com/dmonllao/vim-IDE.git .*
+    * *ln -s ~/.vim/.vimrc ~/.vimrc*
+    * *git submodule init*
+    * *git submodule update*
 * Copy/add your own .vimrc rules and overrides to .vimrc as specified in .vim/.vimrc
 
 Options
