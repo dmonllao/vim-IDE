@@ -45,6 +45,8 @@ color jellybeans
 "let g:IDEAlways = 1     Always open Vim in IDE mode, without
 "                        considering the file type.
 "
+"let g:IDEOnlyEditor = 1 Open Vim in IDE mode but only displaying
+"                        the editor window.
 "
 """"""""" KEY MAPPINGS (CHANGE THEM AS YOU WISH) """"""""""""""""""""
 "

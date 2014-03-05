@@ -14,6 +14,11 @@ if !exists("g:IDEAlways")
   let g:IDEAlways = 0
 endif
 
+" To open in IDE mode but displaying only the editor window.
+if !exists("g:IDEOnlyEditor")
+    let g:IDEOnlyEditor = 0
+endif
+
 " Default key mappings
 if !exists("g:IDESplitWindowKey")
   let g:IDESplitWindowKey = 'c'
@@ -69,6 +74,14 @@ function! s:IDEOpen()
   wincmd w
 
   let s:IDEModeOn = 1
+
+  " Hide explorer and tag list if required.
+  if g:IDEOnlyEditor != 0
+    NERDTreeClose
+    if bufwinnr(g:TagList_title) != -1
+        TlistClose
+    endif
+  endif
 
 endfunction
 

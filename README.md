@@ -41,6 +41,7 @@ All options can be defined in .vim/.vimrc, open it for further info.
 * ":IDEClose" to return to normal Vim file edition mode
 * ":IDERebuildTags" to rebuild the project tags (gets the filetype from the current window)
 * "let g:IDEAlways" if you want to use the IDE mode for all files opened with Vim
+* "let g:IDEOnlyEditor" if you want only want to display the editor window
 * "let g:IDESplitWindowKey" to redefine which key opens a file splitting the window horizontally, defaults to "c"
 * "let g:IDEVSplitWindowKey" to redefine which key opens a file splitting the window vertically, defaults to "f"
 * "let g:IDEOpenCurrentWindowKey" to redefine which key opens a file in the current window, defaults to "a"
