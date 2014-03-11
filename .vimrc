@@ -31,7 +31,6 @@ call pathogen#infect()
 color jellybeans
 
 
-
 """"""""" IDE COMMANDS """"""""""""""""""""""""""""""""""""""""""""""
 "
 " :IDEOpen               Starts IDE mode.

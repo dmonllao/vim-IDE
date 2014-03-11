@@ -6,6 +6,10 @@ autocmd vimenter * IDEOpen
 " phpDoc mapping.
 nnoremap <buffer> <C-p> :call PhpDocRange()<CR>
 
+"""""""""" Completion """""""""""""""
+
+" Overwrite the default omni-completion for the PHP one.
+set omnifunc=phpcomplete#CompletePHP
 
 """""""""" Others """""""""""""""""""
 

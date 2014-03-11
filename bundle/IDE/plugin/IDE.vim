@@ -64,6 +64,12 @@ function! s:IDEOpen()
   " Support QuickFix for Ggrep.
   autocmd QuickFixCmdPost *grep* cwindow
 
+  " Set the default Vim omni-completion.
+  set omnifunc=syntaxcomplete#Complete
+
+  " When completing we don't want to open windows.
+  set completeopt=menuone
+
   " Tags and file output.
   call s:IDEAddTags()
 

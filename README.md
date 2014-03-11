@@ -10,6 +10,7 @@ Features
 ========
 * Project explorer
 * File outline
+* Completion
 * Jump to methods, classes, functions...
 * Syntax highlighting
 * Comment/uncomment lines quickly
@@ -95,6 +96,7 @@ Dependencies are installed following the 'Install' section steps. Most of the pr
 * https://github.com/tpope/vim-fugitive (Git & grep)
 * https://github.com/nanotech/jellybeans.vim (Styles)
 * https://github.com/scrooloose/syntastic (Syntax highlighting)
+* https://github.com/shawncplus/phpcomplete.vim (Omni-completion)
 * https://github.com/tpope/vim-pathogen
 * http://ctags.sourceforge.net/
 
