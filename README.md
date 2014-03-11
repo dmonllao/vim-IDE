@@ -32,11 +32,15 @@ Install
     * *ln -s ~/.vim/.vimrc ~/.vimrc*
     * *git submodule init*
     * *git submodule update*
-* Copy/add your own .vimrc rules and overrides to .vimrc as specified in .vim/.vimrc
+* Copy/add your own .vimrc rules and overrides to ~/.vim/custom.vim, more info in ~/.vim/custom.vim.dist; note
+  that your settings may conflict with the ones set by vim-IDE.
 
 Options
 =======
-All options can be defined in .vim/.vimrc, open it for further info.
+There are many vim-IDE features to customize. As mentioned above, you can set your own preferences and extensions,
+the same with the vim-IDE features, you can set them in ~/.vim/custom.vim, which you can create from ~/.vim/custom.vim.dist
+
+Read ~/.vim/custom.vim.dist for further info about the following IDE options:
 
 * ":IDEOpen" to add IDE features
 * ":IDEClose" to return to normal Vim file edition mode
