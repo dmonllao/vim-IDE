@@ -67,6 +67,9 @@ function! s:IDEOpen()
   " Set the default Vim omni-completion.
   set omnifunc=syntaxcomplete#Complete
 
+  " SuperTab opening omni-completion by default.
+  let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
   " When completing we don't want to open windows.
   set completeopt=menuone
 

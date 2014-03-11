@@ -68,6 +68,7 @@ Usage
 * cd /your/project/root
 * vim the/file/you/want/to/open  (All files in /your/project/root will be parsed to get the available tags)
 * Jump to methods, classes or functions: Hover the method, class or function name and press \<CTRL + c\> to open the definition splitting the window horizontally, \<CTRL + f\> to split it vertically or \<CTRL + a\> to open it on the current window
+* Auto-complete: Press Tab key in Insert mode
 * Open a file from the project explorer: Same key mappings, Press "c" to open it splitting the screen horizontally, "f" to split it vertically and "a" to open it on the current window
 * Comment the current line: Press "\<leader\>cc" or "\<leader\>c\<space\>" to toogle the line comment (\<leader\> key is mapped to "\" by default)
 * Check syntax: Type ":make"
@@ -97,6 +98,7 @@ Dependencies are installed following the 'Install' section steps. Most of the pr
 * https://github.com/nanotech/jellybeans.vim (Styles)
 * https://github.com/scrooloose/syntastic (Syntax highlighting)
 * https://github.com/shawncplus/phpcomplete.vim (Omni-completion)
+* https://github.com/ervandew/supertab (Completion using Tab)
 * https://github.com/tpope/vim-pathogen
 * http://ctags.sourceforge.net/
 
