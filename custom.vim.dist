@@ -6,6 +6,14 @@
 " Note that the commented vars are showing the default values.
 "
 "
+""""""""" COLORS SETS """""""""""""""""""""""""""""""""""""""""""""""
+" The default one is jellybeans, github theme is also included in
+" this package, you can also add your favorite ones, just copy them to
+" ~/.vim/colors/ (or use pathogen) and reference them here.
+"
+" color jellybeans
+"
+"
 """"""""" IDE COMMANDS """"""""""""""""""""""""""""""""""""""""""""""
 "
 " :IDEOpen               Starts IDE mode.

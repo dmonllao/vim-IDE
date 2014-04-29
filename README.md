@@ -100,6 +100,7 @@ Dependencies are installed following the 'Install' section steps. Most of the pr
 * https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim (PHP documentor)
 * https://github.com/tpope/vim-fugitive (Git & grep)
 * https://github.com/nanotech/jellybeans.vim (Styles)
+* http://www.vim.org/scripts/script.php?script_id=2855 (Styles)
 * https://github.com/scrooloose/syntastic (Syntax highlighting)
 * https://github.com/shawncplus/phpcomplete.vim (Omni-completion)
 * https://github.com/ervandew/supertab (Completion using Tab)
