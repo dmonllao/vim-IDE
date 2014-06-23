@@ -65,13 +65,15 @@ function! s:IDEOpen()
   autocmd QuickFixCmdPost *grep* cwindow
 
   " Set the default Vim omni-completion.
-  set omnifunc=syntaxcomplete#Complete
-
-  " SuperTab opening omni-completion by default.
-  let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+  if (&omnifunc == "")
+    set omnifunc=syntaxcomplete#Complete
+  endif
 
   " When completing we don't want to open windows.
   set completeopt=menuone
+
+  " SuperTab opening omni-completion by default.
+  let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
   " Tags and file output.
   call s:IDEAddTags()
