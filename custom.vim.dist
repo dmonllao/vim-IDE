@@ -24,11 +24,16 @@
 "
 """"""""" VARS """"""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"let g:IDEAlways = 1     Always open Vim in IDE mode, without
-"                        considering the file type.
+" Always open Vim in IDE mode, without
+" considering the file type.
 "
-"let g:IDEOnlyEditor = 1 Open Vim in IDE mode but only displaying
-"                        the editor window.
+"  let g:IDEAlways = 1     
+"
+" Open Vim in IDE mode but only displaying
+" the editor window.
+"
+"  let g:IDEOnlyEditor = 1
+"
 "
 """"""""" KEY MAPPINGS (CHANGE THEM AS YOU WISH) """"""""""""""""""""
 "
