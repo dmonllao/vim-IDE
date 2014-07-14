@@ -1,0 +1,3 @@
+
+autocmd vimenter * IDEOpen
+
