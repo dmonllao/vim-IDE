@@ -27,7 +27,7 @@
 " Always open Vim in IDE mode, without
 " considering the file type.
 "
-"  let g:IDEAlways = 1     
+"  let g:IDEAlways = 1
 "
 " Open Vim in IDE mode but only displaying
 " the editor window.
