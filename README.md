@@ -16,11 +16,13 @@ Features
 * Comment/uncomment lines quickly
 * Integrated with git at project-level repository
 * Project level search (git grep)
+* Easy system copy & paste (depends on clipboard, see #Requirements)
 * (Don't be scared by the time it takes the first time you open a file, is gathering the project references and is only the first time) :)
 
 Requirements
 ============
 * Only tested with Vim 7.3 and higher
+* vim-gtk package or vim compiled with clipboard support for system clipboard copy & paste
 
 Install
 =======
@@ -77,6 +79,7 @@ Usage
 * Comment the current line: Press "\<leader\>cc" or "\<leader\>c\<space\>" to toogle the line comment (\<leader\> key is mapped to "\" by default)
 * Check syntax: Type ":make"
 * To paste without indentation problems: Press \<F9\> and CTRL+SHIFT+P
+* To copy: Select the text using the mouse cursor or visual mode and CTRL + C (only if the system clipboard is available)
 * To toggle the file outline: Press \<F8\>
 * To toggle the project explorer: Press \<F7\>
 

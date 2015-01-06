@@ -182,6 +182,12 @@ endfunction
 " Adds the key mappings depening on the provided values.
 function! s:IDEAddKeyMappings()
 
+  " Copy & paste from system clipboard (only available if vim was compiled with clipboard support).
+  if has('clipboard')
+    exe 'map <C-c> "+y<CR>'
+    set mouse=a
+  endif
+
   " Jump to definitions mappings.
   exe 'nmap <C-' . g:IDEVSplitWindowKey . '> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>'
   exe 'nmap <C-' . g:IDESplitWindowKey . '> :sp <CR>:exec("tag ".expand("<cword>"))<CR>'
