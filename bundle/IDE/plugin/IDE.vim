@@ -32,6 +32,10 @@ if !exists("g:IDEOpenCurrentWindowKey")
   let g:IDEOpenCurrentWindowKey = 'a'
 endif
 
+if !exists("g:IDEFindUsesKey")
+  let g:IDEFindUsesKey = 'v'
+endif
+
 if !exists("g:IDENERDTreeToggleKey")
   let g:IDENERDTreeToggleKey = 'F7'
 endif
@@ -129,7 +133,7 @@ function! s:IDEBuildTags(check_previous_file)
   if l:ctags_available =~ '/' && filereadable(expand(l:tags_command_path))
 
     " Get project tags filename (the hash of the pwd + filetype).
-    let l:tags_file = s:IDEGetTagsFileName(l:language)
+    let l:tags_file = s:IDEGetProjectHashFilePath(l:language) . '_tags'
 
     " Add project tags if they are not there yet.
     if a:check_previous_file == 0 || &tags !~ l:tags_file
@@ -141,7 +145,30 @@ function! s:IDEBuildTags(check_previous_file)
 
       " Adding the tags.
       execute "set tags+=" . l:tags_file
+    endif
 
+    " Load cscope mappings if cscope is available.
+    if has('cscope')
+      let l:cscope_file = s:IDEGetProjectHashFilePath(l:language) . '_cscope'
+      if filereadable(l:cscope_file)
+        let l:cscope_already_set = 1
+      endif
+
+      " Only the first time or if the user explicitly requests it.
+      if a:check_previous_file == 0 || !exists('l:cscope_already_set')
+
+        " Clean old stuff.
+        if exists('l:cscope_already_set')
+            exe system('rm ' . l:cscope_file)
+            exe "cs kill " . l:cscope_file
+        endif
+
+        exe system('find . -name "*.' . l:language . '" > cscope.files')
+        exe system('cscope -R -b')
+        exe system('rm cscope.files')
+        exe system('mv cscope.out ' . l:cscope_file)
+      endif
+      call s:IDELoadCscope(l:cscope_file)
     endif
 
     return 1
@@ -179,6 +206,15 @@ function! s:IDEAddTaglist()
 
 endfunction
 
+
+" Loads cscope file.
+function! s:IDELoadCscope(cscope_file)
+  set nocscopeverbose " suppress 'duplicate connection' error
+  exe "cs add " . a:cscope_file
+  set cscopeverbose
+endfunction
+
+
 " Adds the key mappings depening on the provided values.
 function! s:IDEAddKeyMappings()
 
@@ -189,9 +225,12 @@ function! s:IDEAddKeyMappings()
   endif
 
   " Jump to definitions mappings.
-  exe 'nmap <C-' . g:IDEVSplitWindowKey . '> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>'
-  exe 'nmap <C-' . g:IDESplitWindowKey . '> :sp <CR>:exec("tag ".expand("<cword>"))<CR>'
-  exe 'nmap <C-' . g:IDEOpenCurrentWindowKey . '> :exec("tag ".expand("<cword>"))<CR>'
+  exe 'nmap <C-' . g:IDEVSplitWindowKey . '> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
+  exe 'nmap <C-' . g:IDESplitWindowKey . '> :sp <CR>:exec("tjump ".expand("<cword>"))<CR>'
+  exe 'nmap <C-' . g:IDEOpenCurrentWindowKey . '> :exec("tjump ".expand("<cword>"))<CR>'
+
+  " Finds uses of the current tag.
+  exe 'nmap <C-' . g:IDEFindUsesKey . '> :scs find s <C-R>=expand("<cword>")<CR><CR><Tab>'
 
   " File outline window mapping.
   exe 'nmap <silent> <' . g:IDETagListToggleKey . '> :TlistToggle<CR>'
@@ -199,6 +238,7 @@ function! s:IDEAddKeyMappings()
   " Project explorer window mapping.
   exe 'nmap <silent> <' . g:IDENERDTreeToggleKey . '> :NERDTreeToggle<CR>'
 endfunction
+
 
 " Adds NERDTree
 function! s:IDEAddNERDTree()
@@ -234,8 +274,7 @@ endfunction
 
 
 " Gets the tags filename ([pwd + language] unique)
-function! s:IDEGetTagsFileName(language)
+function! s:IDEGetProjectHashFilePath(language)
   let l:shreturn = system('sh ~/.vim/script/get_project_hash.sh ' . a:language)
   return substitute(l:shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g")
 endfunction
-

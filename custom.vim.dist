@@ -51,6 +51,7 @@
 "let g:IDESplitWindowKey = 'c'
 "let g:IDEVSplitWindowKey = 'f'
 "let g:IDEOpenCurrentWindowKey = 'a'
+"let g:IDEFindUsesKey = 'v'
 "
 """"""""""""""""""
 "

@@ -2,7 +2,7 @@
 
 ##
 # Expects the language as $1 so each project has
-# a tags file per language
+# a hash per language.
 ##
 
 # Depending on the OS.
