@@ -160,11 +160,13 @@ function! s:IDEBuildTags(check_previous_file)
         " Clean old stuff.
         if exists('l:cscope_already_set')
             exe system('rm ' . l:cscope_file)
+            set nocscopeverbose
             exe "cs kill " . l:cscope_file
+            set cscopeverbose
         endif
 
         exe system('find . -name "*.' . l:language . '" > cscope.files')
-        exe system('cscope -R -b')
+        exe system('cscope -R -b &> /dev/null')
         exe system('rm cscope.files')
         exe system('mv cscope.out ' . l:cscope_file)
       endif
@@ -209,7 +211,7 @@ endfunction
 
 " Loads cscope file.
 function! s:IDELoadCscope(cscope_file)
-  set nocscopeverbose " suppress 'duplicate connection' error
+  set nocscopeverbose
   exe "cs add " . a:cscope_file
   set cscopeverbose
 endfunction
