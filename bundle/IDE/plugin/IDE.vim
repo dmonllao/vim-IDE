@@ -77,7 +77,7 @@ function! s:IDEOpen()
   set completeopt=menuone
 
   " SuperTab opening omni-completion by default.
-  let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+  let g:SuperTabDefaultCompletionType = "<c-n>"
 
   " Tags and file output.
   call s:IDEBuildTags(1)
