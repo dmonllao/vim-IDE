@@ -80,7 +80,7 @@ function! s:IDEOpen()
   let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
   " Tags and file output.
-  call s:IDEAddTags()
+  call s:IDEBuildTags(1)
 
   " Project explorer load and display.
   call s:IDEAddNERDTree()
@@ -140,11 +140,18 @@ function! s:IDEBuildTags(check_previous_file)
 
       " Creating tags file if it doesn't exists.
       if a:check_previous_file == 0 || !filereadable(expand(l:tags_file))
+        echom "Generating tags file... It can take a while depending on how big your project is."
         call s:IDERunCtagsCommand(l:tags_command_path, l:tags_file)
+        echo "Tags file successfully created."
       endif
 
       " Adding the tags.
       execute "set tags+=" . l:tags_file
+
+      " Init taglist if it was not already initialised.
+      if a:check_previous_file == 1
+        call s:IDEAddTaglist()
+      endif
     endif
 
     " Load cscope mappings if cscope is available.
@@ -166,27 +173,18 @@ function! s:IDEBuildTags(check_previous_file)
         endif
 
         exe system('find . -name "*.' . l:language . '" > cscope.files')
+        echom "Generating cscope file... It can take a while depending on how big your project is."
         exe system('cscope -R -b &> /dev/null')
         exe system('rm cscope.files')
         exe system('mv cscope.out ' . l:cscope_file)
+        echo "Cscope file successfully created."
       endif
       call s:IDELoadCscope(l:cscope_file)
     endif
 
-    return 1
   endif
 
-  return 0
-endfunction
-
-
-" Load the tags of the specified language inside the project scope
-function! s:IDEAddTags()
-
-  if s:IDEBuildTags(1)
-    call s:IDEAddTaglist()
-  endif
-
+  echo "Project tags successfully loaded."
 endfunction
 
 
