@@ -26,13 +26,6 @@ let g:pdv_cfg_Author = ""
 setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
-" Show trailing whitespaces and tabs.
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * call clearmatches()
-autocmd BufWinLeave * call clearmatches()
-autocmd InsertLeave * call clearmatches()
-autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
-
 " Mappings to insert var_dump() before and after the current line.
 noremap <F5> <Up>$a<CR>var_dump('?');<CR><Esc>:w<Return><Up>$<Left><Left><Left>
 noremap <F6> $a<CR>var_dump('?');<CR><Esc>:w<Return><Up>$<Left><Left><Left>

@@ -30,6 +30,13 @@ call pathogen#infect()
 " Styles.
 color jellybeans
 
+" Show trailing whitespaces and tabs.
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * call clearmatches()
+autocmd BufWinLeave * call clearmatches()
+autocmd InsertLeave * call clearmatches()
+autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
+
 " Loading user settings and overwrites.
 if filereadable(expand("~/.vim/custom.vim"))
     source ~/.vim/custom.vim
