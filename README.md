@@ -61,6 +61,10 @@ Read ~/.vim/custom.vim.dist for further info about the following IDE options:
 
 Fully supported languages
 =========================
+
+Mostly the ones I use:
+
+* Shell
 * PHP
 * Vim
 
