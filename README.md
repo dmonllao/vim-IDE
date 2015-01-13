@@ -62,6 +62,7 @@ Read ~/.vim/custom.vim.dist for further info about the following IDE options:
 Fully supported languages
 =========================
 * PHP
+* Vim
 
 Languages can be easily added, more info in next section. All contributions will be greatly appreciated :)
 

@@ -5,6 +5,13 @@
 #
 # Redirects the usual warnings and errors to /dev/null
 # and avoid all kind of verbosity
+#
+# REPLACE FILETYPENAME FOR YOUR FILETYPE.
+#
+# * Supported ctags filetypes @see ctags --list-languages
+# * FILETYPENAME-kinds values depends on the language
+#   @see ctags --list-kinds
+# * FILETYPENAME-regex Is optional
 ##
 
 ctags \
