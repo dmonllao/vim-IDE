@@ -17,4 +17,4 @@ ctags \
 --PHP-kinds=+cfi-v \
 --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' \
 --regex-PHP='/interface\s+([^ ]+)/\1/i/' \
---regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' `pwd` 2> /dev/null
+--regex-PHP='/(public |static |abstract |protected |private )+\s+function\s+([^ (]*)/\2/f/' `pwd` 2> /dev/null
