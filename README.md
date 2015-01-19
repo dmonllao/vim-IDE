@@ -83,6 +83,7 @@ Usage
 * Jump to methods, classes or functions:
 ** \<CTRL + left mouse click\> the method, class or function name to jump to its definition
 ** \<CTRL + right mouse click\> the method, class or function name to jump to its definition, splitting the window horizontally
+** \<CTRL + middle mouse click\> the method, class or function name to jump to its definition, splitting the window vertically
 ** Hover the method, class or function name and press \<CTRL + c\> to open the definition splitting the window horizontally
 ** Hover the method, class or function name and press \<CTRL + f\> to split it vertically
 ** Hover the method, class or function name and press \<CTRL + a\> to open it on the current window

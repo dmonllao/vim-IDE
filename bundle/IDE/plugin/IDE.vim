@@ -252,6 +252,10 @@ function! s:IDEAddKeyMappings()
 
   " Right mouse click to open the definition in a new :sp window.
   exe 'nmap <C-RightMouse> <LeftMouse> :sp <CR>:exec("tjump ".expand("<cword>"))<CR>'
+
+  " Middle mouse click to open the definition in a new :vsp window.
+  exe 'nmap <C-MiddleMouse> <LeftMouse> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
+
 endfunction
 
 
