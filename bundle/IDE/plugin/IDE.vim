@@ -246,6 +246,12 @@ function! s:IDEAddKeyMappings()
 
   " Project explorer window mapping.
   exe 'nmap <silent> <' . g:IDENERDTreeToggleKey . '> :NERDTreeToggle<CR>'
+
+  " Left mouse click to open the definition in the same window.
+  exe 'nmap <C-LeftMouse> <LeftMouse> :exec("tjump ".expand("<cword>"))<CR>'
+
+  " Right mouse click to open the definition in a new :sp window.
+  exe 'nmap <C-RightMouse> <LeftMouse> :sp <CR>:exec("tjump ".expand("<cword>"))<CR>'
 endfunction
 
 

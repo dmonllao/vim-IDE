@@ -11,7 +11,7 @@ Features
 * Project explorer
 * File outline
 * Completion
-* Jump to methods, classes, functions... (definitions and uses of them)
+* Jump to methods, classes, functions... (definitions and uses of them) using keyboard or mouse
 * Syntax highlighting
 * Comment/uncomment lines quickly
 * Integrated with git at project-level repository
@@ -80,7 +80,13 @@ Usage
 =====
 * cd /your/project/root
 * vim the/file/you/want/to/open  (All files in /your/project/root will be parsed to get the available tags)
-* Jump to methods, classes or functions: Hover the method, class or function name and press \<CTRL + c\> to open the definition splitting the window horizontally, \<CTRL + f\> to split it vertically, \<CTRL + a\> to open it on the current window or \<CTRL + v\> to open a list of the uses of that method, class or function in the codebase.
+* Jump to methods, classes or functions:
+** \<CTRL + left mouse click\> the method, class or function name to jump to its definition
+** \<CTRL + right mouse click\> the method, class or function name to jump to its definition, splitting the window horizontally
+** Hover the method, class or function name and press \<CTRL + c\> to open the definition splitting the window horizontally
+** Hover the method, class or function name and press \<CTRL + f\> to split it vertically
+** Hover the method, class or function name and press \<CTRL + a\> to open it on the current window
+** Hover the method, class or function name and press \<CTRL + v\> to open a list of the uses of that method, class or function in the codebase.
 * Auto-complete: Press Tab key in Insert mode
 * Open a file from the project explorer: Same key mappings, Press "c" to open it splitting the screen horizontally, "f" to split it vertically and "a" to open it on the current window
 * Comment the current line: Press "\<leader\>cc" or "\<leader\>c\<space\>" to toogle the line comment (\<leader\> key is mapped to "\" by default)
