@@ -9,6 +9,9 @@ command! -nargs=0 -bar IDEClose call s:IDEClose()
 " Rebuild the tags of the current buffer.
 command! -nargs=0 -bar IDERebuildTags call s:IDEBuildTags(0)
 
+" Output console results in a new buffer.
+command! -complete=shellcmd -nargs=+ IDES call s:IDERunShellCommand(<q-args>)
+
 " To make Vim init in IDE mode with all kind of files.
 if !exists("g:IDEAlways")
   let g:IDEAlways = 0
@@ -296,4 +299,25 @@ endfunction
 function! s:IDEGetProjectHashFilePath(language)
   let l:shreturn = system('sh ~/.vim/script/get_project_hash.sh ' . a:language)
   return substitute(l:shreturn,"[^0-9a-zA-Z\/_\.\ \-\+]","","g")
+endfunction
+
+" Opens the terminal output in a new window
+" http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+function! s:IDERunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
 endfunction

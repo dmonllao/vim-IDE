@@ -48,6 +48,7 @@ Read ~/.vim/custom.vim.dist for further info about the following IDE options:
 * ":IDEOpen" to add IDE features
 * ":IDEClose" to return to normal Vim file edition mode
 * ":IDERebuildTags" to rebuild the project tags (gets the filetype from the current window)
+* ":IDES" open the shell command output in a sp window (e.g. :IDES ls -la)
 * "let g:IDEAlways" if you want to use the IDE mode for all files opened with Vim
 * "let g:IDEOnlyEditor" if you want only want to display the editor window
 * "let g:IDESplitWindowKey" to redefine which key opens a file (or the current word) splitting the window horizontally, defaults to "c"
@@ -125,5 +126,6 @@ Dependencies are installed following the 'Install' section steps. Most of the pr
 * https://github.com/tpope/vim-pathogen
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
+* http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 
 If I've missed someone/something, please, let me know.
