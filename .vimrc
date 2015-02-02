@@ -30,6 +30,9 @@ call pathogen#infect()
 " Styles.
 color jellybeans
 
+" Overwriting search highlight colour as this foregrund is more visual.
+highlight Search ctermbg=Yellow ctermfg=Black
+
 " Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * call clearmatches()
