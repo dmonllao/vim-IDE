@@ -67,6 +67,7 @@ Mostly the ones I use:
 
 * Shell
 * PHP
+* Javascript
 * Vim
 
 Languages can be easily added, more info in next section. All contributions will be greatly appreciated :)
