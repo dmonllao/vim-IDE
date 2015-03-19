@@ -2,6 +2,9 @@
 
 ##
 # The output filename comes as $1
+#
+# This includes a dirty hack to exclude angular.js :) which
+# JSON_PROTECTION_PREFIX var breaks ctags format.
 ##
 
 ctags \
@@ -11,6 +14,7 @@ ctags \
 --exclude=.git \
 --exclude=*min.js \
 --exclude=*debug.js  \
+--exclude=angular.js \
 --totals=no \
 --verbose=no \
 --tag-relative=yes \
