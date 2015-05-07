@@ -132,7 +132,9 @@ Most of the project features are part of different plugins, only the basic ones 
 * https://github.com/scrooloose/syntastic (Syntax highlighting)
 * https://github.com/shawncplus/phpcomplete.vim (Omni-completion)
 * https://github.com/ervandew/supertab (Completion using Tab)
-* https://github.com/tpope/vim-pathogen
+* https://github.com/tpope/vim-markdown (Markdown)
+* https://github.com/digitaltoad/vim-jade (Jade)
+* https://github.com/tpope/vim-pathogen (Plugin dependencies)
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
 * http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
