@@ -134,6 +134,7 @@ Most of the project features are part of different plugins, only the basic ones 
 * https://github.com/ervandew/supertab (Completion using Tab)
 * https://github.com/tpope/vim-markdown (Markdown)
 * https://github.com/digitaltoad/vim-jade (Jade)
+* https://github.com/mattn/emmet-vim (Quick HTML & CSS typing)
 * https://github.com/tpope/vim-pathogen (Plugin dependencies)
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/

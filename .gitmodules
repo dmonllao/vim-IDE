@@ -28,3 +28,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = git://github.com/mattn/emmet-vim.git
