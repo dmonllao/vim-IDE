@@ -1,2 +1,4 @@
 " Disable HTML syntax checkings. It is soooo slow.
-silent SyntasticToggleMode
+if &filetype == "html"
+  silent SyntasticToggleMode
+endif
