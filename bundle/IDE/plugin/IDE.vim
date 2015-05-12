@@ -101,6 +101,9 @@ function! s:IDEOpen()
     endif
   endif
 
+  " StatusLine stuff up to date with the theme and all.
+  AirlineRefresh
+
 endfunction
 
 

@@ -29,6 +29,7 @@ call pathogen#infect()
 
 " Styles.
 color jellybeans
+let g:airline_theme='hybrid'
 
 " Overwriting search highlight colour as this foregrund is more visual.
 highlight Search ctermbg=Yellow ctermfg=Black
