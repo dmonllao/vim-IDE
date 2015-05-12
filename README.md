@@ -2,16 +2,16 @@ Use Vim along with your project git repository to have all project-oriented IDEs
 
 Features
 ========
+* Integrated with git at project-level repository
 * Project explorer
 * File outline
 * Auto-completion
 * Jump to methods, classes, functions... (definitions and uses of them) using keyboard or mouse
-* Syntax highlighting
-* Comment/uncomment lines quickly
-* Integrated with git at project-level repository
+* Syntax checking and highlighting
 * Project level search (git grep or cscope)
+* Comment/uncomment lines quickly
 * Easy system copy & paste (depends on clipboard, see [Requirements](#requirements))
-* Keyboard and mouse mappings for usual actions
+* Keyboard and mouse mappings for common actions
 * (Don't be scared by the time it takes the first time you open a project file, is gathering the project references and is only the first time)
 
 By default the Vim-IDE mode is only automatically enabled when opening [supported languages](#fully-supported-languages) files, but it is easy to add more languages (read [Adding new languages](#adding-new-languages)" section for more info).
@@ -35,7 +35,7 @@ Requirements
 Install
 =======
 
-Backup your **~/.vimrc** and your **~/.vim**
+Backup your **~/.vimrc** and your **~/.vim** if you want
 
     cd ~/.vim
     git clone git://github.com/dmonllao/vim-IDE.git .
@@ -54,33 +54,36 @@ Mostly the ones I use:
 * PHP
 * Javascript
 * Vim
+* Markdown
+* Text
+* HTML
 
 Languages can be easily added, more info in next section. Feel free to contribute.
 
 Adding new languages
 ====================
-* Create the filetype specifics in **ftplugin/FILETYPENAME.vim** as usual or include a language-specific plugin as submodule in bundle/
-* Add a line with "autocmd vimenter * IDEOpen" in your **ftplugin/FILETYPENAME.vim** if you want to add IDE features
-* Create a **fttags/FILETYPENAME.sh** to write the ctags command, you can use **fttags/template.sh** as template but setting the language specific commands
+* Create the filetype specifics in **ftplugin/FILETYPENAME.vim**
+* Add a line with "autocmd vimenter * IDEOpen" in your **ftplugin/FILETYPENAME.vim** to add IDE features
+* Create a **fttags/FILETYPENAME.sh** to write the ctags command, use **fttags/template.sh** template
 
 Commands
 ========
+* **Auto-complete**: **\<Tab\>** in "Insert mode" while writing
 * **Jump to methods, classes or functions**
-    * **\<CTRL + left mouse click\>** the method, class or function name to **jump to its definition**
-    * **\<CTRL + right mouse click\>** the method, class or function name to **jump to its definition, splitting the window horizontally**
-    * **\<CTRL + middle mouse click\>** the method, class or function name to **jump to its definition, splitting the window vertically**
-    * Set the cursor position hover the method, class or function name and press **\<CTRL + c\>** to **open the definition splitting the window horizontally**
-    * Set the cursor position hover the method, class or function name and press **\<CTRL + f\>** to **open the definition splitting it vertically**
-    * Set the cursor position hover the method, class or function name and press **\<CTRL + a\>** to **open the definition on the current window**
-    * Set the cursor position hover the method, class or function name and press **\<CTRL + v\>** to **open a list of the uses of that method, class or function in the codebase**
-* **Open a file from the project explorer**: Same key mappings, Press **c** to open it splitting the screen horizontally, **f** to split it vertically and **a** to open it on the current window
-* **Auto-complete**: Press **\<Tab\> in Insert mode** while writing to get a list of matches
-* **Comment/uncomment the current line**: Press **\<leader\>c\<space\> in non-Insert mode** to comment/uncomment (\<leader\> key is mapped to "\" by default)
-* **Comment/uncomment a bunch of lines**: Press **v** to enter in "Visual mode" and select a bunch of lines, then press **\<leader\>c<space>** to comment/uncomment them all
-* **To paste without indentation problems**: Press **\<F9\>** and **\<CTRL + SHIFT + P\>**
-* **To copy**: Select the text using the mouse cursor or visual mode and **\<CTRL + C\>** (only **if the system clipboard is available**)
-* **To toggle the "File outline" visibility:** Press **\<F8\>**
-* **To toggle the "Project explorer" visibility:** Press **\<F7\>**
+    * **\<C-LeftMouse\>** over the method or class name to **jump to its definition**
+    * **\<C-RightMouse\>** over the method or class name to **jump to its definition, splitting the window horizontally**
+    * **\<C-MiddleMouse\>** over the method or class name to **jump to its definition, splitting the window vertically**
+    * Cursor on the method or class and **\<C-c\>** to **open the definition splitting the window horizontally**
+    * Cursor on the method or class and **\<C-f\>** to **open the definition splitting it vertically**
+    * Cursor on the method or class and **\<C-a\>** to **open the definition on the current window**
+    * Cursor on the method or class and **\<C-v\>** to **open a list of references to that tag**
+* **Open a file from the project explorer**: **c** to open it splitting the screen horizontally, **f** vertically and **a** in the current window
+* **To toggle the "File outline" visibility:** **\<F8\>**
+* **To toggle the "Project explorer" visibility:** **\<F7\>**
+* **Comment/uncomment the current line**: **\<leader\>c\<space\>** in non-Insert mode to comment/uncomment (\<leader\> key is mapped to "\" by default)
+* **Comment/uncomment a bunch of lines**: **v** to enter in "Visual mode", select lines and **\<leader\>c<space>** to comment/uncomment them all
+* **To paste without indentation problems**: **\<F9\>** and **\<C-S-P\>**
+* **To copy**: Select the text using the mouse cursor or visual mode and **\<C-c\>** (only **if the system clipboard is available**)
 
 More info about all the supported commands/mappings below, in [options](#options) section or in [each vim plugin's page](#more-info--dependencies--credits)
 
@@ -109,11 +112,8 @@ Vim quick info
 ==============
 * Enter **Insert mode** with **i** to edit text
 * In "Normal mode" press **:** to enter into **Command-line mode**
-* **Navigate through windows** using **\<CTRL + w\> and \<Up\>, \<Down\>, \<Left\> or \<Right\>** depending on where is the window you want to focus
-* **Copy & paste**: Enter to "Visual mode" with **v**, highlight code and press **y** when you are happy with the selection, then paste it with **p**
-* Paste code from another application: Enter paste mode (**\<F9\>**) and **\<CTRL + SHIFT + P\>**
+* **Navigate through windows** using **\<C-w\> and \<Up\>, \<Down\>, \<Left\> or \<Right\>** depending on where is the window you want to focus
 * **Create a new file** splitting the current window **:sp /path/to/new/file** horizontally, and **:vsp /path/to/new/file** vertically, **in "Command-line mode"**
-* Copy to system clipboard (only on supported languages): In "Visual mode", after selecting the text, **\<CTRL + C\>**
 
 More info / dependencies / credits
 ======================
