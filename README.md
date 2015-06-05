@@ -12,6 +12,7 @@ Features
 * Comment/uncomment lines quickly
 * Easy system copy & paste (depends on clipboard, see [Requirements](#requirements))
 * Keyboard and mouse mappings for common actions
+* Quick add echo "<cword>" based on the cursor line
 * (Don't be scared by the time it takes the first time you open a project file, is gathering the project references and is only the first time)
 
 By default the Vim-IDE mode is only automatically enabled when opening [supported languages](#fully-supported-languages) files, but it is easy to add more languages (read [Adding new languages](#adding-new-languages)" section for more info).
@@ -62,7 +63,7 @@ Languages can be easily added, more info in next section. Feel free to contribut
 
 Adding new languages
 ====================
-* Create the filetype specifics in **ftplugin/FILETYPENAME.vim**
+* Create the filetype specifics in **ftplugin/FILETYPE.vim** you can base it on the existing filetypes (ftplugin/sh.vim for example)
 * Add a line with "autocmd vimenter * IDEOpen" in your **ftplugin/FILETYPENAME.vim** to add IDE features
 * Create a **fttags/FILETYPENAME.sh** to write the ctags command, use **fttags/template.sh** template
 
@@ -84,6 +85,7 @@ Commands
 * **Comment/uncomment a bunch of lines**: **v** to enter in "Visual mode", select lines and **\<leader\>c<space>** to comment/uncomment them all
 * **To paste without indentation problems**: **\<F9\>** and **\<C-S-P\>**
 * **To copy**: Select the text using the mouse cursor or visual mode and **\<C-c\>** (only **if the system clipboard is available**)
+* **To echo "<cword>"**: **\<F5\>** and **\<F6\>** to prepend/append a new line with an echo (language dependant) to the cursor line
 
 More info about all the supported commands/mappings below, in [options](#options) section or in [each vim plugin's page](#more-info--dependencies--credits)
 

@@ -262,8 +262,15 @@ function! s:IDEAddKeyMappings()
   " Middle mouse click to open the definition in a new :vsp window.
   exe 'nmap <C-MiddleMouse> <LeftMouse> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
 
-endfunction
+  " If echo pre and post are defined in the buffer filetype file we add mappings for quick echo.
+  let l:language = s:IDEGetFileLanguage()
+  if exists('g:' . l:language . '_echo_pre') && exists('g:' . l:language . '_echo_post')
+        " Esc to get out of insert or visual modes.
+        exe 'noremap <F5> <Esc>:call g:IDEEchoBefore()<CR>:w<CR>'
+        exe 'noremap <F6> <Esc>:call g:IDEEchoAfter()<CR>:w<CR>'
+  endif
 
+endfunction
 
 " Adds NERDTree
 function! s:IDEAddNERDTree()
@@ -310,10 +317,10 @@ function! s:IDERunShellCommand(cmdline)
   echo a:cmdline
   let expanded_cmdline = a:cmdline
   for part in split(a:cmdline, ' ')
-     if part[0] =~ '\v[%#<]'
-        let expanded_part = fnameescape(expand(part))
-        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-     endif
+    if part[0] =~ '\v[%#<]'
+      let expanded_part = fnameescape(expand(part))
+      let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+    endif
   endfor
   botright new
   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
@@ -323,4 +330,26 @@ function! s:IDERunShellCommand(cmdline)
   execute '$read !'. expanded_cmdline
   setlocal nomodifiable
   1
+endfunction
+
+" Helper for IDEEcho*.
+function! s:IDEGetEcho(cword)
+  let l:language = s:IDEGetFileLanguage()
+  return eval('g:' . l:language . '_echo_pre') . a:cword . eval('g:' . l:language . '_echo_post')
+endfunction
+
+" Prepends an echo \"<cword>\" to the cursor current word line.
+function! g:IDEEchoBefore()
+  let l:cword = expand("<cword>")
+  call cursor(line('.')-1, line('$'))
+  read !echo
+  call setline(line('.'), getline('.') . s:IDEGetEcho(l:cword))
+endfunction
+
+" Appends an echo \"<cword>\" to the cursor current word line.
+function! g:IDEEchoAfter()
+  let l:cword = expand("<cword>")
+  call cursor(line('.'), line('$'))
+  read !echo
+  call setline(line('.'), getline('.') . s:IDEGetEcho(l:cword))
 endfunction
