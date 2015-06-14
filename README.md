@@ -1,5 +1,7 @@
 Use Vim along with your project git repository to have all project-oriented IDEs cool features.
 
+[![Features demo](https://asciinema.org/a/21377.png)](https://asciinema.org/a/21377)
+
 Features
 ========
 * Integrated with git at project-level repository
@@ -143,5 +145,6 @@ Most of the project features are part of different plugins, only the basic ones 
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
 * http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+* https://asciinema.org
 
 If I've missed someone/something, please, let me know.
