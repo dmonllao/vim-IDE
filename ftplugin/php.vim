@@ -8,7 +8,7 @@ let g:php_echo_pre = 'var_dump($'
 let g:php_echo_post = ');'
 
 " phpDoc mapping.
-nnoremap <buffer> <C-p> :call PhpDocRange()<CR>
+nnoremap <buffer> <C-l> :call PhpDocRange()<CR>
 
 """""""""" Completion """""""""""""""
 

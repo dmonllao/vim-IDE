@@ -14,6 +14,7 @@ Features
 * Comment/uncomment lines quickly
 * Easy system copy & paste (depends on clipboard, see [Requirements](#requirements))
 * Keyboard and mouse mappings for common actions
+* Fuzzy search
 * Quick add echo "<cword>" based on the cursor line
 * (Don't be scared by the time it takes the first time you open a project file, is gathering the project references and is only the first time)
 
@@ -69,34 +70,42 @@ Adding new languages
 * Add a line with "autocmd vimenter * IDEOpen" in your **ftplugin/FILETYPENAME.vim** to add IDE features
 * Create a **fttags/FILETYPENAME.sh** to write the ctags command, use **fttags/template.sh** template
 
-Commands
-========
+Usage
+=====
+
 * **Auto-complete**: **\<Tab\>** in "Insert mode" while writing
+* **Fuzzy search**: **\<C-p\>**, select the file and [select file](#selecting-files)
 * **Jump to methods, classes or functions**
+    * Cursor on the method or class and [select file](#selecting-files)
+    * Cursor on the method or class and **\<C-v\>** to **open a list of references to that tag**
     * **\<C-LeftMouse\>** over the method or class name to **jump to its definition**
     * **\<C-RightMouse\>** over the method or class name to **jump to its definition, splitting the window horizontally**
     * **\<C-MiddleMouse\>** over the method or class name to **jump to its definition, splitting the window vertically**
-    * Cursor on the method or class and **\<C-c\>** to **open the definition splitting the window horizontally**
-    * Cursor on the method or class and **\<C-f\>** to **open the definition splitting it vertically**
-    * Cursor on the method or class and **\<C-a\>** to **open the definition on the current window**
-    * Cursor on the method or class and **\<C-v\>** to **open a list of references to that tag**
-* **Open a file from the project explorer**: **c** to open it splitting the screen horizontally, **f** vertically and **a** in the current window
+* **Open a file from the project explorer**: [select file](#selecting-files)
+* **Select a file from file outline**: [select file](#selecting-files)
 * **To toggle the "File outline" visibility:** **\<F8\>**
 * **To toggle the "Project explorer" visibility:** **\<F7\>**
-* **Comment/uncomment the current line**: **\<leader\>c\<space\>** in non-Insert mode to comment/uncomment (\<leader\> key is mapped to "\" by default)
-* **Comment/uncomment a bunch of lines**: **v** to enter in "Visual mode", select lines and **\<leader\>c<space>** to comment/uncomment them all
+* **Comment/uncomment the current line**: **\<leader\>c\<space\>** in non-Insert mode to comment/uncomment
+* **Comment/uncomment a bunch of lines**: Select lines in "Visual mode" and **\<leader\>c<space>** to comment/uncomment
 * **To paste without indentation problems**: **\<F9\>** and **\<C-S-P\>**
-* **To copy**: Select the text using the mouse cursor or visual mode and **\<C-c\>** (only **if the system clipboard is available**)
+* **To copy**: Select the text and **\<C-c\>** (only **if the system clipboard is available**)
 * **To echo "<cword>"**: **\<F5\>** and **\<F6\>** to prepend/append a new line with an echo (language dependant) to the cursor line
 
 More info about all the supported commands/mappings below, in [options](#options) section or in [each vim plugin's page](#more-info--dependencies--credits)
 
 To overwrite these mapping with your own preferences see [custom.vim.dist](https://github.com/dmonllao/vim-IDE/blob/master/custom.vim.dist)
 
+Selecting files
+===============
+
+These are the mappings to select files ([you can customise them](#options)) to open files or tags. They are used on multiple commands:
+* **\<C-a\>** open in the current buffer
+* **\<C-c\>** open new buffer splitting the window horizontally
+* **\<C-f\>** open new buffer splitting the window vertically
+
 Options
 =======
-There are many vim-IDE features to customize. As mentioned above, you can set your own preferences and extensions,
-the same with the vim-IDE features, you can set them in ~/.vim/custom.vim, which you can create from ~/.vim/custom.vim.dist
+You can set your own preferences and extensions in ~/.vim/custom.vim, which you can create from ~/.vim/custom.vim.dist
 
 * **:IDEOpen** to add IDE features
 * **:IDEClose** to return to normal Vim file edition mode
@@ -111,6 +120,8 @@ the same with the vim-IDE features, you can set them in ~/.vim/custom.vim, which
 * **let g:IDENERDTreeToggleKey** to redefine the key to toggle the project explorer window, defaults to "F7"
 * **let g:IDETagListToggleKey** to redefine the key to toggle the file outline window, defaults to "F8"
 * **let g:IDEPasteModeKey** to redefine the key to enter to "paste mode", defaults to "F9"
+
+Here you can also customise the other Vim [plugins included here](#more-info--dependencies--credits).
 
 Vim quick info
 ==============
@@ -142,6 +153,7 @@ Most of the project features are part of different plugins, only the basic ones 
 * https://github.com/bling/vim-airline (Improved statusline)
 * https://github.com/airblade/vim-gitgutter (Git diff)
 * https://github.com/tpope/vim-pathogen (Plugin dependencies)
+* https://github.com/kien/ctrlp.vim
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
 * http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window

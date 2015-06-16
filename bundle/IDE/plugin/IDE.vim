@@ -262,6 +262,17 @@ function! s:IDEAddKeyMappings()
   " Middle mouse click to open the definition in a new :vsp window.
   exe 'nmap <C-MiddleMouse> <LeftMouse> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
 
+  " Ctrlp remappings after reading customized IDE vars.
+  " TODO Here I might fuck it up, many chances of conflicts with other
+  " mappings.
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<cr>', '<c-' . g:IDEOpenCurrentWindowKey . '>', '<2-LeftMouse>'],
+    \ 'AcceptSelection("h")': ['<c-' . g:IDESplitWindowKey . '>', '<c-RightMouse>'],
+    \ 'AcceptSelection("v")': ['<c-' . g:IDEVSplitWindowKey . '>', '<c-MiddleMouse>'],
+    \ 'ToggleType(1)':        ['<c-up>'],
+    \ 'PrtCurStart()':        ['<c-i>'],
+\ }
+
   " If echo pre and post are defined in the buffer filetype file we add mappings for quick echo.
   let l:language = s:IDEGetFileLanguage()
   if exists('g:' . l:language . '_echo_pre') && exists('g:' . l:language . '_echo_post')

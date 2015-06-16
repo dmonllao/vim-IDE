@@ -34,6 +34,21 @@ let g:airline_theme='hybrid'
 " Overwriting search highlight colour as this foregrund is more visual.
 highlight Search ctermbg=Yellow ctermfg=Black
 
+" Fuzzy search.
+set path=$PWD/**
+let g:ctrlp_working_path_mode='a'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" Apply here IDE defaults.
+" ToggleType and PrtCurStart extended to remove the duplicates once re-maped.
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<cr>', '<c-a>', '<2-LeftMouse>'],
+    \ 'AcceptSelection("h")': ['<c-c>', '<c-RightMouse>'],
+    \ 'AcceptSelection("v")': ['<c-f>', '<c-MiddleMouse>'],
+    \ 'ToggleType(1)':        ['<c-up>'],
+    \ 'PrtCurStart()':        ['<c-i>'],
+\ }
+
 " Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * call clearmatches()
