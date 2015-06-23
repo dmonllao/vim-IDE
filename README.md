@@ -18,28 +18,36 @@ Features
 * Quick add echo "<cword>" based on the cursor line
 * (Don't be scared by the time it takes the first time you open a project file, is gathering the project references and is only the first time)
 
-By default the Vim-IDE mode is only automatically enabled when opening [supported languages](#fully-supported-languages) files, but it is easy to add more languages (read [Adding new languages](#adding-new-languages)" section for more info).
+By default the vim-IDE mode is only automatically enabled when opening [supported languages](#fully-supported-languages) files, but it is easy to add more languages (read [Adding new languages](#adding-new-languages) section for more info).
 
 Usage
 =====
 You should run Vim from your project root directory, all /my/project/root files will be parsed to get the available tags.
 
     cd /my/project/root
-    vim any/of/my/project/files.SUPPORTED-LANGUAGE
+    vim any/of/my/project/files.file
 
-Only a [few usual vim customisations](https://github.com/dmonllao/vim-IDE/blob/master/.vimrc) are available when using Vim to open unsupported languages files.
+A few [usual customisations](https://github.com/dmonllao/vim-IDE/blob/master/.vimrc) are available when using Vim to open not fully supported languages files.
 
 Requirements
 ============
-* Vim 7.3 and higher (not tested on lower versions)
-* Ctags (or exhuberant Ctags) for project-scope tags, jump to definitions, auto-completion...
-* For easy copy & paste to the system clipboard Vim should be compiled with **clipboard** support (vim-gtk package compiles Vim with clipboard support)
-* For cscope support (list of tags uses) Vim should be compiled with **--enable-cscope** option (vim-gtk package compiles Vim with cscope support)
+
+Vim 7.3 and higher (not tested on lower versions)
+
+(Optional) But really recommended, is to install ctags (project-scope tags, jump to definitions, auto-completion...) and cscope (list of tags uses). Vim should also be compiled with **--enable-cscope** option (you can just install vim-gtk package).
+
+    # Linux (apt-get)
+    sudo apt-get install ctags cscope vim-gtk
+
+    # OSx
+    brew install ctags cscope
+
+(Optional) For easy copy & paste to the system clipboard, Vim should be compiled with **clipboard** support (also included in vim-gtk package).
 
 Install
 =======
 
-Backup your **~/.vimrc** and your **~/.vim** if you want
+Backup your **~/.vimrc** and/or your **~/.vim** dir.
 
     cd ~/.vim
     git clone git://github.com/dmonllao/vim-IDE.git .
@@ -47,7 +55,16 @@ Backup your **~/.vimrc** and your **~/.vim** if you want
     git submodule init
     git submodule update
 
-(Optional) Copy/add your own **.vimrc** rules and overrides to **~/.vim/custom.vim**, more info in **~/.vim/custom.vim.dist**; note that your settings may conflict with the ones set by vim-IDE.
+If you are later interested in using part of your previous **~/.vimrc** you can do it in [**~/.vim/custom.vim**](#options).
+
+Upgrade
+=======
+
+    git fetch origin && git rebase origin/master
+    git submodule init
+    git submodule update
+
+Note that your **~/.vim/custom.vim** changes will be preserved but if you hacked **~/.vimrc** directly you would have to backup your changes and restore them after last vim-IDE changes are pulled. It is better to add your [customisations to **~/.vim/custom.vim**](#options).
 
 Fully supported languages
 =========================
@@ -105,14 +122,12 @@ These are the mappings to select files ([you can customise them](#options)) to o
 
 Options
 =======
-You can set your own preferences and extensions in ~/.vim/custom.vim, which you can create from ~/.vim/custom.vim.dist
+You can set your own preferences and extensions in **~/.vim/custom.vim**, which you can create from **~/.vim/custom.vim.dist**, it will be included just after **~/.vimrc** is loaded.
 
-* **:IDEOpen** to add IDE features
-* **:IDEClose** to return to normal Vim file edition mode
-* **:IDERebuildTags** to rebuild the project tags (gets the filetype from the current window)
-* **:IDES** open the shell command output in a sp window (e.g. :IDES ls -la)
-* **let g:IDEAlways** if you want to use the IDE mode for all files opened with Vim
-* **let g:IDEOnlyEditor** if you want only want to display the editor window
+These are the global variables you can overwrite in **~/.vim/custom.vim**:
+
+* **let g:IDEOnlyEditor** if you want only want to display the editor window (I use this one)
+* **let g:IDEAlways** if you want to use the IDE mode for all files opened with Vim, not only the fully supported ones
 * **let g:IDESplitWindowKey** to redefine which key opens a file (or the current word) splitting the window horizontally, defaults to "c"
 * **let g:IDEVSplitWindowKey** to redefine which key opens a file (or the current word) splitting the window vertically, defaults to "f"
 * **let g:IDEOpenCurrentWindowKey** to redefine which key opens a file (or the current word) in the current window, defaults to "a"
@@ -120,6 +135,13 @@ You can set your own preferences and extensions in ~/.vim/custom.vim, which you 
 * **let g:IDENERDTreeToggleKey** to redefine the key to toggle the project explorer window, defaults to "F7"
 * **let g:IDETagListToggleKey** to redefine the key to toggle the file outline window, defaults to "F8"
 * **let g:IDEPasteModeKey** to redefine the key to enter to "paste mode", defaults to "F9"
+
+These are the vim-IDE commands:
+
+* **:IDEOpen** to add IDE features
+* **:IDEClose** to return to normal Vim file edition mode
+* **:IDERebuildTags** to rebuild the project tags (gets the filetype from the current window)
+* **:IDES** open the shell command output in a sp window (e.g. :IDES ls -la)
 
 Here you can also customise the other Vim [plugins included here](#more-info--dependencies--credits).
 
