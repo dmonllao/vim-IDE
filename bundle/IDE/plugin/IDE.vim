@@ -136,7 +136,7 @@ function! s:IDEBuildTags(check_previous_file)
   let l:tags_command_path = s:IDEGetCtagsScript(l:language)
 
   " Only if ctags is available and if there is a tags command for this language.
-  if l:ctags_available =~ '/' && filereadable(expand(l:tags_command_path))
+  if l:ctags_available != '' && filereadable(expand(l:tags_command_path))
 
     " Get project tags filename (the hash of the pwd + filetype).
     let l:tags_file = s:IDEGetProjectHashFilePath(l:language) . '_tags'
@@ -161,7 +161,8 @@ function! s:IDEBuildTags(check_previous_file)
     endif
 
     " Load cscope mappings if cscope is available.
-    if has('cscope')
+    let l:cscope_available = system('which cscope 2> /dev/null')
+    if l:cscope_available != '' && has('cscope')
       let l:cscope_file = s:IDEGetProjectHashFilePath(l:language) . '_cscope'
       if filereadable(l:cscope_file)
         let l:cscope_already_set = 1
