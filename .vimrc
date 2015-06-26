@@ -31,8 +31,10 @@ call pathogen#infect()
 color jellybeans
 let g:airline_theme='hybrid'
 
-" Overwriting search highlight colour as this foregrund is more visual.
-highlight Search ctermbg=Yellow ctermfg=Black
+" Yellow as selected whatever colour.
+highlight Search ctermbg=3 ctermfg=Black
+highlight Visual ctermbg=3 ctermfg=Black
+highlight VisualNOS ctermbg=3 ctermfg=Black
 
 " Fuzzy search.
 set path=$PWD/**
