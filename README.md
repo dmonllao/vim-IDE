@@ -57,6 +57,8 @@ Backup your **~/.vimrc** and/or your **~/.vim** dir.
 
 If you are later interested in using part of your previous **~/.vimrc** you can do it in [**~/.vim/custom.vim**](#options).
 
+Note that it uses a dark colour scheme (jellybeans) but respecting your command line interface background colour configuration; if you are using a bash "black on white" colour scheme you might want to change it to something darker.
+
 Upgrade
 =======
 
