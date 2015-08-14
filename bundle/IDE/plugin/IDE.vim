@@ -264,8 +264,8 @@ function! s:IDEAddKeyMappings()
   exe 'nmap <C-MiddleMouse> <LeftMouse> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
 
   " Ctrlp remappings after reading customized IDE vars.
-  " TODO Here I might fuck it up, many chances of conflicts with other
-  " mappings.
+  " TODO Here I might fuck it up, many chances of conflicts when using
+  " alternative key mappings.
   let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<cr>', '<c-' . g:IDEOpenCurrentWindowKey . '>', '<2-LeftMouse>'],
     \ 'AcceptSelection("h")': ['<c-' . g:IDESplitWindowKey . '>', '<c-RightMouse>'],

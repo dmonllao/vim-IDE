@@ -37,9 +37,13 @@ highlight Visual ctermbg=3 ctermfg=Black
 highlight VisualNOS ctermbg=3 ctermfg=Black
 
 " Fuzzy search.
+" * Adding tags extension
+" * Opens the last used mode
 set path=$PWD/**
+let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_working_path_mode='a'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_extensions = ['tag']
 
 " Apply here IDE defaults.
 " ToggleType and PrtCurStart extended to remove the duplicates once re-maped.
