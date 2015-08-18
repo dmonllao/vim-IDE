@@ -44,7 +44,6 @@ let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_working_path_mode='a'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_extensions = ['tag']
-
 " Apply here IDE defaults.
 " ToggleType and PrtCurStart extended to remove the duplicates once re-maped.
 let g:ctrlp_prompt_mappings = {
@@ -54,6 +53,9 @@ let g:ctrlp_prompt_mappings = {
     \ 'ToggleType(1)':        ['<c-up>'],
     \ 'PrtCurStart()':        ['<c-i>'],
 \ }
+
+" Mustache
+let g:mustache_abbreviations = 1
 
 " Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
