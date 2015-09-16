@@ -30,6 +30,7 @@ call pathogen#infect()
 " Styles.
 color jellybeans
 let g:airline_theme='hybrid'
+highlight LineNr ctermfg=grey
 
 " Yellow as selected whatever colour.
 highlight Search ctermbg=3 ctermfg=Black
