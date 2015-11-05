@@ -1,6 +1,9 @@
 """"""""" General Vim settings """""""""""""""""
 
 syntax enable
+
+set backspace=2
+set mouse=a
 set fileformats=unix,dos
 set ruler
 set laststatus=2
