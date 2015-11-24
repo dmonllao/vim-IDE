@@ -42,6 +42,11 @@ highlight Search ctermbg=3 ctermfg=Black
 highlight Visual ctermbg=3 ctermfg=Black
 highlight VisualNOS ctermbg=3 ctermfg=Black
 
+" Copy & paste from system clipboard (only available if vim was compiled with clipboard support).
+if has('clipboard')
+  exe 'map <C-c> "+y<CR>'
+endif
+
 " Fuzzy search.
 " * Adding tags extension
 " * Opens the last used mode
