@@ -71,16 +71,23 @@ function! s:IDEOpen()
   " Support QuickFix for Ggrep.
   autocmd QuickFixCmdPost *grep* cwindow
 
-  " Set the default Vim omni-completion.
+  " Set the default Vim omni-completion if nothing was defined by plugins.
   if (&omnifunc == "")
     set omnifunc=syntaxcomplete#Complete
   endif
 
-  " When completing we don't want to open windows.
-  set completeopt=menuone
+  " No preview by default, plugin types have preference over this default.
+  if &completeopt == ""
+    set completeopt=longest,menuone
+  endif
 
-  " SuperTab opening omni-completion by default.
-  let g:SuperTabDefaultCompletionType = "<c-n>"
+  " SuperTab opening auto-completion by default, plugins have preference.
+  if !exists("g:SuperTabDefaultCompletionType")
+    let g:SuperTabDefaultCompletionType = "<c-n>"
+  endif
+  let g:SuperTabClosePreviewOnPopupClose = 1
+  let g:SuperTabLongestEnhanced = 1
+  let g:SuperTabLongestHighlight = 1
 
   " Tags and file output.
   call s:IDEBuildTags(1)
@@ -233,12 +240,6 @@ endfunction
 
 " Adds the key mappings depening on the provided values.
 function! s:IDEAddKeyMappings()
-
-  " Copy & paste from system clipboard (only available if vim was compiled with clipboard support).
-  if has('clipboard')
-    exe 'map <C-c> "+y<CR>'
-    set mouse=a
-  endif
 
   " Jump to definitions mappings.
   exe 'nmap <C-' . g:IDEVSplitWindowKey . '> :vsp <CR>:exec("tjump ".expand("<cword>"))<CR>'
