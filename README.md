@@ -179,6 +179,7 @@ Most of the project features are part of different plugins, only the basic ones 
 * https://github.com/tpope/vim-pathogen (Plugin dependencies)
 * https://github.com/kien/ctrlp.vim
 * https://github.com/evidens/vim-twig
+* https://github.com/haya14busa/incsearch.vim
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
 * http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window

@@ -23,6 +23,10 @@ set smartindent
 set incsearch
 set hlsearch
 
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 " Turn on filetype detection and load the plugin files for
 " specific file types.
 filetype plugin on

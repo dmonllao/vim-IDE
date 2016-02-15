@@ -46,3 +46,6 @@
 [submodule "bundle/vim-twig"]
 	path = bundle/vim-twig
 	url = git://github.com/evidens/vim-twig.git
+[submodule "bundle/incsearch.vim"]
+	path = bundle/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim
