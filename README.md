@@ -44,6 +44,8 @@ Vim 7.3 and higher (not tested on lower versions)
 
 (Optional) For easy copy & paste to the system clipboard, Vim should be compiled with **clipboard** support (also included in vim-gtk package).
 
+(Optional) You can use https://github.com/universal-ctags/ctags alternatively for better support.
+
 Install
 =======
 
@@ -62,9 +64,9 @@ Note that it uses a dark colour scheme (jellybeans) but respecting your command 
 Upgrade
 =======
 
+    # Replace origin if you used a different remote name.
     git fetch origin && git rebase origin/master
-    git submodule init
-    git submodule update
+    ./upgrade.sh
 
 Note that your **~/.vim/custom.vim** changes will be preserved but if you hacked **~/.vimrc** directly you would have to backup your changes and restore them after last vim-IDE changes are pulled. It is better to add your [customisations to **~/.vim/custom.vim**](#options).
 
