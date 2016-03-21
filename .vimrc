@@ -35,16 +35,19 @@ filetype plugin on
 call pathogen#infect()
 
 " Styles.
+set t_Co=256
+set background=dark
 color jellybeans
-let g:airline_theme='hybrid'
+let g:airline_theme='jellybeans'
+
 highlight LineNr ctermfg=grey
 highlight Folded ctermfg=grey
 highlight VertSplit ctermbg=grey ctermfg=grey
 
 " Yellow as selected whatever colour.
-highlight Search ctermbg=3 ctermfg=Black
-highlight Visual ctermbg=3 ctermfg=Black
-highlight VisualNOS ctermbg=3 ctermfg=Black
+highlight Search ctermbg=Yellow ctermfg=Black
+highlight Visual ctermbg=Yellow ctermfg=Black
+highlight VisualNOS ctermbg=Yellow ctermfg=Black
 
 " Copy & paste from system clipboard (only available if vim was compiled with clipboard support).
 if has('clipboard')
