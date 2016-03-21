@@ -7,12 +7,22 @@
 "
 "
 """"""""" COLORS SETS """""""""""""""""""""""""""""""""""""""""""""""
-" The default one is jellybeans, github theme is also included in
+" The default one is 'jellybeans', 'lucius' color set is also included in
 " this package, you can also add your favorite ones, just copy them to
-" ~/.vim/colors/ (or use pathogen) and reference them here.
+" ~/.vim/colors/ (or use pathogen) and reference them here. You might also
+" need to set the background color.
+"
+" Default setup:
 "
 " color jellybeans
+" set background=dark
 "
+"
+" Light theme alternative setup:
+"
+" color lucius
+" set background=light
+" let g:airline_theme='dark'
 "
 """"""""" IDE COMMANDS """"""""""""""""""""""""""""""""""""""""""""""
 "
