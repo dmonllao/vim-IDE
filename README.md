@@ -9,7 +9,7 @@ Features
 * File outline
 * Auto-completion
 * Jump to methods, classes, functions... (definitions and uses of them) using keyboard or mouse
-* Syntax checking and highlighting
+* Syntax checking and auto highlighting
 * Project level search (git grep or cscope)
 * Comment/uncomment lines quickly
 * Easy system copy & paste (depends on clipboard, see [Requirements](#requirements))
