@@ -87,8 +87,11 @@ function! s:IDEOpen()
 
   " No preview by default, plugin types have preference over this default.
   if &completeopt == ""
-    set completeopt=longest,menuone
+    set completeopt=longest,menu
   endif
+
+  " No files included (very slow), tags is enough.
+  set complete=.,w,b,u,t
 
   " SuperTab opening auto-completion by default, plugins have preference.
   if !exists("g:SuperTabDefaultCompletionType")

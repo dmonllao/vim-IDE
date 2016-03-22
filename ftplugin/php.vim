@@ -15,9 +15,8 @@ nnoremap <buffer> <C-l> :call PhpDocRange()<CR>
 " Use php omnicompletion here.
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set omnifunc=phpcomplete#CompletePHP
-set completeopt=longest,menuone
-let g:phpcomplete_complete_for_unknown_classes = 1
-let g:phpcomplete_parse_docblock_comments = 1
+set completeopt=longest,menu
+" Show all info and autocomplete if there is 1 single result.
 let g:phpcomplete_mappings = {
   \ 'jump_to_def': '<c-a>',
   \ 'jump_to_def_split': '<c-c>',
