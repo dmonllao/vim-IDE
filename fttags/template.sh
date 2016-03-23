@@ -3,14 +3,18 @@
 ##
 # The output filename comes as $1
 #
-# Redirects the usual warnings and errors to /dev/null
-# and avoid all kind of verbosity
+# IMPORTANT: Redirects the usual warnings and errors to /dev/null
+# and avoid all kind of verbosity. Any output will cause errors when
+# executing this file through Vim. Debug separately.
 #
 # REPLACE FILETYPENAME FOR YOUR FILETYPE.
 #
-# * Supported ctags filetypes @see ctags --list-languages
+# * Supported ctags filetypes
+#   @see ctags --list-languages
+#
 # * FILETYPENAME-kinds values depends on the language
 #   @see ctags --list-kinds
+#
 # * FILETYPENAME-regex Is optional
 ##
 
