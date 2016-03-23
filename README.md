@@ -78,6 +78,7 @@ Mostly the ones I use:
 * Shell
 * PHP
 * Javascript
+* Python
 * Vim
 * Markdown
 * Text
