@@ -65,15 +65,6 @@ function! s:IDEOpen()
   " Show line numbers.
   set number
 
-  " Auto highlight matches.
-  " http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
-  augroup auto_highlight
-    au!
-    au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-  augroup end
-  setl updatetime=500
-  set hls
-
   " Add key mappings.
   call s:IDEAddKeyMappings()
 
