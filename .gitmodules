@@ -1,9 +1,6 @@
 [submodule "bundle/jellybeans"]
 	path = bundle/jellybeans
 	url = git://github.com/nanotech/jellybeans.vim.git
-[submodule "bundle/taglist"]
-	path = bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -52,3 +49,6 @@
 [submodule "bundle/lucius"]
 	path = bundle/lucius
 	url = https://github.com/jonathanfilip/vim-lucius
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git

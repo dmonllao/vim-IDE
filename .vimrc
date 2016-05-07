@@ -75,6 +75,10 @@ let g:ctrlp_prompt_mappings = {
 " Mustache
 let g:mustache_abbreviations = 1
 
+" Airline showing the current tag.
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
+
 " Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * call clearmatches()

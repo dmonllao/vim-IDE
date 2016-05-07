@@ -166,7 +166,7 @@ Most of the project features are part of different plugins, only the basic ones 
 
 * https://github.com/scrooloose/nerdtree (Project explorer)
 * https://github.com/scrooloose/nerdcommenter (Code commenter)
-* https://github.com/vim-scripts/taglist.vim (File outline)
+* https://github.com/majutsushi/tagbar (File outline)
 * https://github.com/tobyS/vip/blob/master/.vim/php-doc.vim (PHP documentor)
 * https://github.com/tpope/vim-fugitive (Git & grep)
 * https://github.com/nanotech/jellybeans.vim (Styles)

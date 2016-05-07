@@ -43,6 +43,8 @@ if !exists("g:IDENERDTreeToggleKey")
   let g:IDENERDTreeToggleKey = 'F7'
 endif
 
+" Named tag list as TagList plugin was used prior to Tagbar, haven't changed
+" the name because still makes sense and no need to break backwards compatibility.
 if !exists("g:IDETagListToggleKey")
   let g:IDETagListToggleKey = 'F8'
 endif
@@ -96,19 +98,21 @@ function! s:IDEOpen()
   call s:IDEBuildTags(1)
 
   " Project explorer load and display.
-  call s:IDEAddNERDTree()
+  call s:IDESetupNERDTree()
 
   " Focus to opened file window.
   wincmd w
 
   let s:IDEModeOn = 1
 
-  " Hide explorer and tag list if required.
-  if g:IDEOnlyEditor != 0
-    NERDTreeClose
-    if bufwinnr(g:TagList_title) != -1
-        TlistClose
-    endif
+  " Show explorer and tag list if required.
+  if g:IDEOnlyEditor == 0
+
+    " NERDTree gets the focus, we return to the previous window.
+    NERDTree
+    wincmd p
+
+    TagbarOpen
   endif
 
   " StatusLine stuff up to date with the theme and all.
@@ -127,9 +131,7 @@ function! s:IDEClose()
 
   NERDTreeClose
 
-  if bufwinnr(g:TagList_title) != -1
-    TlistClose
-  endif
+  TagbarClose
 
   let s:IDEModeOn = 0
 
@@ -166,7 +168,7 @@ function! s:IDEBuildTags(check_previous_file)
 
       " Init taglist if it was not already initialised.
       if a:check_previous_file == 1
-        call s:IDEAddTaglist()
+        call s:IDESetupTaglist()
       endif
     endif
 
@@ -214,22 +216,9 @@ function! s:IDEBuildTags(check_previous_file)
 endfunction
 
 
-" Adds Taglist
-function! s:IDEAddTaglist()
-
-  " File outline (Tag list config & init).
-  let g:Tlist_Auto_Open = 1
-  let g:Tlist_Auto_Update = 1
-  let g:Tlist_Use_Right_Window = 1
-  let g:Tlist_Sort_Type = 'name'
-  let g:Tlist_File_Fold_Auto_Close = 1
-  let g:Tlist_Exit_OnlyWindow = 1
-  let g:Tlist_GainFocus_On_ToggleOpen = 0
-  TlistOpen
-
-  " It seems that taglist ignores g:Tlist_GainFocus_On_ToggleOpen.
-  wincmd w
-
+" Setup Taglist
+function! s:IDESetupTaglist()
+  " Nothing now.
 endfunction
 
 
@@ -253,7 +242,7 @@ function! s:IDEAddKeyMappings()
   exe 'nmap <C-' . g:IDEFindUsesKey . '> :scs find s <C-R>=expand("<cword>")<CR><CR><Tab>'
 
   " File outline window mapping.
-  exe 'nmap <silent> <' . g:IDETagListToggleKey . '> :TlistToggle<CR>'
+  exe 'nmap <silent> <' . g:IDETagListToggleKey . '> :TagbarToggle<CR>'
 
   " Project explorer window mapping.
   exe 'nmap <silent> <' . g:IDENERDTreeToggleKey . '> :NERDTreeToggle<CR>'
@@ -288,14 +277,11 @@ function! s:IDEAddKeyMappings()
 
 endfunction
 
-" Adds NERDTree
-function! s:IDEAddNERDTree()
+" Setup NERDTree
+function! s:IDESetupNERDTree()
 
   let g:NERDChristmasTree = 1
   let g:NERDTreeStatusline = 'Project explorer'
-
-  " Open tree navigation.
-  NERDTree
 
   " Close vim if it's the last window.
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
