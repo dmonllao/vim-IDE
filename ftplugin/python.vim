@@ -7,3 +7,7 @@ autocmd vimenter * IDEOpen
 let g:sh_echo_pre = 'print "%s" ('
 let g:sh_echo_post = ')'
 
+" Use php omnicompletion here.
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+set completeopt=longest,menu
+
