@@ -11,3 +11,6 @@ let g:sh_echo_post = ')'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set completeopt=longest,menu
 
+" Jedi config
+let g:jedi#use_splits_not_buffers = "top"
+let g:jedi#popup_select_first = 1
