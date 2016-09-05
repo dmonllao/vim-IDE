@@ -36,7 +36,7 @@
 	url = git://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim
+	url = git://github.com/ctrlpvim/ctrlp.vim
 [submodule "bundle/mustache"]
 	path = bundle/mustache
 	url = git://github.com/mustache/vim-mustache-handlebars.git
@@ -52,3 +52,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "bundle/jedi-vim"]
+	path = bundle/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim.git
