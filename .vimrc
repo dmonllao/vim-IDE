@@ -79,6 +79,8 @@ let g:mustache_abbreviations = 1
 " Airline showing the current tag.
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
+let g:airline_section_y = ''
+let g:airline#extensions#hunks#enabled = 0
 
 " Show trailing whitespaces and tabs.
 highlight ExtraWhitespace ctermbg=red guibg=red
