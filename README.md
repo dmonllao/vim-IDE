@@ -81,8 +81,9 @@ Mostly the ones I use:
 * Python
 * Vim
 * Markdown
-* Text
+* LaTeX
 * HTML
+* Text
 
 Languages can be easily added, more info in next section. Feel free to contribute.
 
@@ -183,6 +184,7 @@ Most of the project features are part of different plugins, only the basic ones 
 * https://github.com/kien/ctrlp.vim
 * https://github.com/evidens/vim-twig
 * https://github.com/haya14busa/incsearch.vim
+* https://github.com/lervag/vimtex
 * http://ctags.sourceforge.net/
 * http://cscope.sourceforge.net/
 * http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
