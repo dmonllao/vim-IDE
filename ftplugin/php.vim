@@ -29,9 +29,10 @@ let g:phpcomplete_mappings = {
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = ""
-let g:pdv_cfg_Copyright = "2015 David Monllaó"
+let g:pdv_cfg_Copyright = "2017 David Monllaó"
 let g:pdv_cfg_License = "http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later"
 let g:pdv_cfg_Author = ""
+let g:pdv_cfg_ReturnVal = ""
 
 " Check syntax of current file.
 setlocal makeprg=php\ -l\ %
