@@ -196,7 +196,7 @@ function! s:IDEBuildTags(check_previous_file)
         " It may be the first file in the folder.
         if getfsize(expand('cscope.files')) > 0
           echom "Generating cscope file... It can take a while depending on how big your project is."
-          exe system('cscope -R -b &> /dev/null')
+          exe system('cscope -R -b > /dev/null 2>&1')
           exe system('rm cscope.files')
           exe system('mv cscope.out ' . l:cscope_file)
           echo "Cscope file successfully created."
@@ -207,12 +207,12 @@ function! s:IDEBuildTags(check_previous_file)
 
       if filereadable(l:cscope_file)
         call s:IDELoadCscope(l:cscope_file)
+        echo "Project tags successfully loaded."
       endif
     endif
 
   endif
 
-  echo "Project tags successfully loaded."
 endfunction
 
 
