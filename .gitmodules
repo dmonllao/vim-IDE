@@ -1,48 +1,48 @@
 [submodule "bundle/jellybeans"]
 	path = bundle/jellybeans
-	url = git://github.com/nanotech/jellybeans.vim.git
+	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/phpcomplete.vim"]
 	path = bundle/phpcomplete.vim
-	url = git://github.com/shawncplus/phpcomplete.vim.git
+	url = https://github.com/shawncplus/phpcomplete.vim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
-	url = git://github.com/digitaltoad/vim-jade.git
+	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
+	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
-	url = git://github.com/mattn/emmet-vim.git
+	url = https://github.com/mattn/emmet-vim.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
-	url = git://github.com/bling/vim-airline.git
+	url = https://github.com/bling/vim-airline.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
-	url = git://github.com/ctrlpvim/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
 [submodule "bundle/mustache"]
 	path = bundle/mustache
-	url = git://github.com/mustache/vim-mustache-handlebars.git
+	url = https://github.com/mustache/vim-mustache-handlebars.git
 [submodule "bundle/vim-twig"]
 	path = bundle/vim-twig
-	url = git://github.com/evidens/vim-twig.git
+	url = https://github.com/evidens/vim-twig.git
 [submodule "bundle/incsearch.vim"]
 	path = bundle/incsearch.vim
 	url = https://github.com/haya14busa/incsearch.vim
@@ -51,10 +51,10 @@
 	url = https://github.com/jonathanfilip/vim-lucius
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
 [submodule "bundle/jedi-vim"]
 	path = bundle/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
+	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/vimtex"]
 	path = bundle/vimtex
-	url = git://github.com/lervag/vimtex
+	url = https://github.com/lervag/vimtex
